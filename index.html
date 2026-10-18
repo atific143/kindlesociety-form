@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KindleSociety - Team & Volunteer Registration</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Noto Serif Bengali / Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0d1b2a',
+              card: '#1b263b',
+              accent: '#ff7f50',
+              accentHover: '#e0663b',
+              input: '#2b3a4e',
+              border: '#415a77',
+              text: '#e0e1dd'
+            }
+          },
+          fontFamily: {
+            sans: ['Hind Siliguri', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0d1b2a;
+      color: #e0e1dd;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    /* Smooth transitions for dynamic sections */
+    .expandable-section {
+      transition: all 0.4s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-10px);
+    }
+
+    .expandable-section.active {
+      max-height: 1200px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Radio & Checkbox focus styles */
+    input[type="radio"]:checked + label,
+    input[type="checkbox"]:checked + label {
+      border-color: #ff7f50;
+      background-color: rgba(255, 127, 80, 0.15);
+      color: #ffffff;
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background-color: rgba(13, 27, 42, 0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d1b2a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #415a77;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff7f50;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+
+  <div class="w-full max-w-3xl bg-brand-card rounded-2xl shadow-2xl border border-brand-border/50 overflow-hidden my-auto">
+    
+    <!-- 1. Header Banner -->
+    <div class="relative bg-gradient-to-r from-[#002147] via-[#0d1b2a] to-[#ff7f50] p-8 sm:p-10 text-center border-b-4 border-brand-accent overflow-hidden">
+      <!-- Background pattern/glow -->
+      <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-accent/20 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Badge/Logo Placeholder -->
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-dark/80 border-2 border-brand-accent text-brand-accent shadow-lg mb-4 text-2xl font-bold">
+        <i class="fa-solid fa-fire"></i>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-wide mb-2 drop-shadow-md">
+        KindleSociety
+      </h1>
+      <p class="text-sm sm:text-base text-gray-200 font-medium tracking-wide max-w-xl mx-auto">
+        Empowering Youth, Building Community | টিম ও ভলান্টিয়ার রেজিস্ট্রেশন ফর্ম
+      </p>
+    </div>
+
+    <!-- Form Container -->
+    <form id="registrationForm" class="p-6 sm:p-10 space-y-8" onsubmit="handleFormSubmit(event)" novalidate>
+      
+      <!-- Instructions Note -->
+      <div class="bg-brand-dark/60 border-l-4 border-brand-accent p-4 rounded-r-lg text-sm text-gray-300 flex items-start space-x-3">
+        <i class="fa-solid fa-circle-info text-brand-accent text-lg mt-0.5"></i>
+        <span>অনুগ্রহ করে সকল সঠিক তথ্য প্রদান করে ফর্মটি পূরণ করুন। লাল স্টার (<span class="text-brand-accent font-bold">*</span>) চিহ্নিত ফিল্ডগুলো পূরণ করা বাধ্যতামূলক।</span>
+      </div>
+
+      <!-- 2. Basic Information Section -->
+      <div class="space-y-5">
+        <h2 class="text-xl font-bold text-white border-b border-brand-border pb-2 flex items-center gap-2">
+          <i class="fa-solid fa-user-gear text-brand-accent"></i> মৌলিক তথ্য (Basic Info)
+        </h2>
+
+        <!-- Full Name -->
+        <div>
+          <label for="fullName" class="block text-sm font-semibold mb-1 text-gray-200">
+            পুরো নাম <span class="text-brand-accent">*</span>
+          </label>
+          <input type="text" id="fullName" name="fullName" required placeholder="আপনার পুরো নাম লিখুন"
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-fullName">অনুগ্রহ করে আপনার নাম প্রদান করুন।</p>
+        </div>
+
+        <!-- Email & Phone Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <!-- Email Address -->
+          <div>
+            <label for="email" class="block text-sm font-semibold mb-1 text-gray-200">
+              ইমেইল ঠিকানা <span class="text-brand-accent">*</span>
+            </label>
+            <input type="email" id="email" name="email" required placeholder="example@gmail.com"
+              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+            <p class="text-red-400 text-xs mt-1 hidden" id="err-email">সঠিক ইমেইল ঠিকানা প্রদান করুন।</p>
+          </div>
+
+          <!-- Phone / WhatsApp -->
+          <div>
+            <label for="phone" class="block text-sm font-semibold mb-1 text-gray-200">
+              ফোন / হোয়াটসঅ্যাপ নম্বর <span class="text-brand-accent">*</span>
+            </label>
+            <input type="tel" id="phone" name="phone" required placeholder="01XXXXXXXXX"
+              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+            <p class="text-red-400 text-xs mt-1 hidden" id="err-phone">সঠিক ১১ ডিজিটের ফোন নম্বর দিন (যেমন: 01700000000)।</p>
+          </div>
+        </div>
+
+        <!-- Social Media Profile -->
+        <div>
+          <label for="socialLink" class="block text-sm font-semibold mb-1 text-gray-200">
+            সোশ্যাল মিডিয়া প্রোফাইল লিঙ্ক (Facebook / LinkedIn) <span class="text-brand-accent">*</span>
+          </label>
+          <input type="url" id="socialLink" name="socialLink" required placeholder="https://facebook.com/yourprofile"
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-socialLink">সঠিক লিঙ্ক (URL) লিঙ্ক প্রদান করুন (http:// বা https:// সহ)।</p>
+        </div>
+
+        <!-- Current Address -->
+        <div>
+          <label for="address" class="block text-sm font-semibold mb-1 text-gray-200">
+            বর্তমান ঠিকানা <span class="text-brand-accent">*</span>
+          </label>
+          <textarea id="address" name="address" rows="2" required placeholder="আপনার বর্তমান ঠিকানা বা এলাকার নাম লিখুন"
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"></textarea>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-address">অনুগ্রহ করে ঠিকানা লিখুন।</p>
+        </div>
+      </div>
+
+      <!-- 3. Dynamic Role Selection -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold text-white border-b border-brand-border pb-2 flex items-center gap-2">
+          <i class="fa-solid fa-user-plus text-brand-accent"></i> ভূমিকা নির্বাচন (Role Selection) <span class="text-brand-accent">*</span>
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Core Team Option -->
+          <div class="relative">
+            <input type="radio" id="roleTeam" name="role" value="Core Team Member" class="peer hidden" onchange="handleRoleChange('team')">
+            <label for="roleTeam" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-accent/50 transition">
+              <i class="fa-solid fa-users-gear text-3xl mb-2 text-brand-accent"></i>
+              <span class="font-bold text-lg text-white">কোর টিম মেম্বার</span>
+              <span class="text-xs text-gray-300 text-center mt-1">সংগঠনের পরিচালন ও নেতৃত্বে ভূমিকা রাখতে চাইলে</span>
+            </label>
+          </div>
+
+          <!-- General Volunteer Option -->
+          <div class="relative">
+            <input type="radio" id="roleVolunteer" name="role" value="General Volunteer" class="peer hidden" onchange="handleRoleChange('volunteer')">
+            <label for="roleVolunteer" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-accent/50 transition">
+              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-brand-accent"></i>
+              <span class="font-bold text-lg text-white">সাধারণ ভলান্টিয়ার</span>
+              <span class="text-xs text-gray-300 text-center mt-1">বিভিন্ন ফিল্ডওয়ার্ক ও সোশ্যাল ড্রাইভে যুক্ত হতে চাইলে</span>
+            </label>
+          </div>
+        </div>
+        <p class="text-red-400 text-xs hidden" id="err-role">একটি ভূমিকা নির্বাচন করুন।</p>
+      </div>
+
+      <!-- SECTION 3A: Core Team Details (Dynamic) -->
+      <div id="teamSection" class="expandable-section space-y-5 bg-brand-dark/40 p-6 rounded-xl border-l-4 border-brand-accent">
+        <h3 class="text-lg font-bold text-brand-accent flex items-center gap-2">
+          <i class="fa-solid fa-sitemap"></i> কোর টিম তথ্য (Core Team Section)
+        </h3>
+
+        <!-- Preferred Department -->
+        <div>
+          <label for="department" class="block text-sm font-semibold mb-1 text-gray-200">
+            পছন্দের বিভাগ (Preferred Department) <span class="text-brand-accent">*</span>
+          </label>
+          <select id="department" name="department" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+            <option value="">-- বিভাগ নির্বাচন করুন --</option>
+            <option value="HR & Admin">HR & Administration (মানবসম্পদ ও প্রশাসন)</option>
+            <option value="Finance">Finance & Accounts (অর্থ বিভাগ)</option>
+            <option value="Operations">Operations & Field Work (অপারেশনস)</option>
+            <option value="Media & PR">Media & PR (মিডিয়া ও জনসংযোগ)</option>
+            <option value="IT & Graphics">IT, Graphics & Content (আইটি ও কনটেন্ট)</option>
+            <option value="Outreach">Outreach & Networking (আউটরিচ)</option>
+          </select>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-department">অনুগ্রহ করে একটি বিভাগ নির্বাচন করুন।</p>
+        </div>
+
+        <!-- Weekly Hours -->
+        <div>
+          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-gray-200">
+            সপ্তাহে কত ঘণ্টা সময় দিতে পারবেন? <span class="text-brand-accent">*</span>
+          </label>
+          <select id="weeklyHours" name="weeklyHours" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+            <option value="">-- সময়কাল নির্বাচন করুন --</option>
+            <option value="3-5 Hours">৩ - ৫ ঘণ্টা</option>
+            <option value="5-10 Hours">৫ - ১০ ঘণ্টা</option>
+            <option value="10+ Hours">১০+ ঘণ্টা</option>
+          </select>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-weeklyHours">সময়সীমা সিলেক্ট করুন।</p>
+        </div>
+
+        <!-- Prior Experience -->
+        <div>
+          <label for="teamExperience" class="block text-sm font-semibold mb-1 text-gray-200">
+            পূর্ব অভিজ্ঞতা ও বিশেষ দক্ষতা <span class="text-brand-accent">*</span>
+          </label>
+          <textarea id="teamExperience" name="teamExperience" rows="3" placeholder="পূর্বের কোনো সংস্থায় কাজের অভিজ্ঞতা বা আপনার বিশেষ কোনো দক্ষতা থাকলে লিখুন..."
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-teamExperience">আপনার অভিজ্ঞতা বা দক্ষতার তথ্য দিন।</p>
+        </div>
+
+        <!-- Statement -->
+        <div>
+          <label for="teamStatement" class="block text-sm font-semibold mb-1 text-gray-200">
+            কেন আপনি KindleSociety-এর লিডারশিপ টিমে যুক্ত হতে চান? <span class="text-brand-accent">*</span>
+          </label>
+          <textarea id="teamStatement" name="teamStatement" rows="3" placeholder="আপনার উদ্দেশ্য ও দৃষ্টিভঙ্গি সংক্ষেপে ব্যাখ্যা করুন..."
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-teamStatement">অনুগ্রহ করে সংক্ষিপ্ত বক্তব্য লিখুন।</p>
+        </div>
+      </div>
+
+      <!-- SECTION 3B: Volunteer Details (Dynamic) -->
+      <div id="volunteerSection" class="expandable-section space-y-5 bg-brand-dark/40 p-6 rounded-xl border-l-4 border-brand-accent">
+        <h3 class="text-lg font-bold text-brand-accent flex items-center gap-2">
+          <i class="fa-solid fa-hands-holding-child"></i> ভলান্টিয়ার তথ্য (Volunteer Section)
+        </h3>
+
+        <!-- Areas of Interest -->
+        <div>
+          <label class="block text-sm font-semibold mb-2 text-gray-200">
+            কাজের পছন্দনীয় ক্ষেত্র (একাধিক নির্বাচন করা যাবে) <span class="text-brand-accent">*</span>
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="interestGroup">
+            <div class="relative">
+              <input type="checkbox" id="int1" name="interest" value="Food Drive & Relief Work" class="peer hidden">
+              <label for="int1" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
+                <i class="fa-solid fa-box-tissue text-brand-accent"></i> ত্রাণ ও খাদ্য বিতরণ
+              </label>
+            </div>
+            <div class="relative">
+              <input type="checkbox" id="int2" name="interest" value="Event Management" class="peer hidden">
+              <label for="int2" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
+                <i class="fa-solid fa-calendar-check text-brand-accent"></i> ইভেন্ট ম্যানেজমেন্ট
+              </label>
+            </div>
+            <div class="relative">
+              <input type="checkbox" id="int3" name="interest" value="Photography & Media" class="peer hidden">
+              <label for="int3" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
+                <i class="fa-solid fa-camera text-brand-accent"></i> ফটোগ্রাফি ও মিডিয়া
+              </label>
+            </div>
+            <div class="relative">
+              <input type="checkbox" id="int4" name="interest" value="Social Media Campaign" class="peer hidden">
+              <label for="int4" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
+                <i class="fa-solid fa-share-nodes text-brand-accent"></i> প্রচার ও অনলাইন ক্যাম্পেইন
+              </label>
+            </div>
+          </div>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-interest">কমপক্ষে একটি ক্ষেত্র নির্বাচন করুন।</p>
+        </div>
+
+        <!-- Availability -->
+        <div>
+          <label for="onFieldAvailability" class="block text-sm font-semibold mb-1 text-gray-200">
+            ফিল্ডওয়ার্কে সরাসরি অংশগ্রহণের সম্মতি <span class="text-brand-accent">*</span>
+          </label>
+          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+            <option value="">-- পছন্দ নির্বাচন করুন --</option>
+            <option value="Yes, available anytime">হ্যাঁ, যেকোনো সময় উপস্থিত হতে পারবো</option>
+            <option value="Chittagong area only">শুধুমাত্র চট্টগ্রাম শহরের ভেতরে হলে পারবো</option>
+            <option value="Online / Remote work preferred">অনলাইন / রিমোট কাজে আগ্রহী</option>
+          </select>
+          <p class="text-red-400 text-xs mt-1 hidden" id="err-onFieldAvailability">আপনার সম্মতি নির্বাচন করুন।</p>
+        </div>
+
+        <!-- Contact Preference -->
+        <div>
+          <label for="contactPref" class="block text-sm font-semibold mb-1 text-gray-200">
+            জরুরি প্রয়োজনে আপনার সাথে দ্রুত যোগাযোগের মাধ্যমে <span class="text-brand-accent">*</span>
+          </label>
+          <select id="contactPref" name="contactPref" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+            <option value="WhatsApp">WhatsApp Message</option>
+            <option value="Phone Call">Direct Phone Call</option>
+            <option value="Email">Email</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="pt-4">
+        <button type="submit"
+          class="w-full py-4 px-8 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-lg rounded-xl shadow-lg transform active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+          <i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন (Submit Application)
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Confirmation Preview Modal -->
+  <div id="previewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+    <div class="bg-brand-card border border-brand-border w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-brand-dark to-brand-card p-5 border-b border-brand-border flex justify-between items-center">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-circle-check text-green-400"></i> আবেদনটির প্রিভিউ ও নিশ্চিতকরণ
+        </h3>
+        <button onclick="closeModal()" class="text-gray-400 hover:text-white text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Content (Scrollable) -->
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-gray-200" id="modalDataContent">
+        <!-- Dynamic content will be injected here -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-brand-dark/80 border-t border-brand-border flex flex-wrap gap-3 justify-end">
+        <button onclick="exportJSON()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2">
+          <i class="fa-solid fa-file-code"></i> JSON ডাটা ডাউনলোড
+        </button>
+        <button onclick="exportCSV()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2">
+          <i class="fa-solid fa-file-csv"></i> CSV ডাউনলোডের ডেমো
+        </button>
+        <button onclick="confirmSubmission()" class="px-5 py-2 bg-brand-accent hover:bg-brand-accentHover text-white rounded-lg text-sm font-bold transition flex items-center gap-2">
+          <i class="fa-solid fa-check"></i> ফাইনাল সাবমিট
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    let formDataObject = {};
+
+    // Dynamic Section Toggling
+    function handleRoleChange(role) {
+      const teamSec = document.getElementById('teamSection');
+      const volSec = document.getElementById('volunteerSection');
+      document.getElementById('err-role').classList.add('hidden');
+
+      if (role === 'team') {
+        teamSec.classList.add('active');
+        volSec.classList.remove('active');
+      } else if (role === 'volunteer') {
+        volSec.classList.add('active');
+        teamSec.classList.remove('active');
+      }
+    }
+
+    // Form Validation and Submission
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      let isValid = true;
+
+      // Basic fields validation
+      const fullName = document.getElementById('fullName');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      const socialLink = document.getElementById('socialLink');
+      const address = document.getElementById('address');
+      
+      const roleTeam = document.getElementById('roleTeam');
+      const roleVolunteer = document.getElementById('roleVolunteer');
+
+      // Helper function for error toggling
+      function validateField(condition, errId) {
+        const errEl = document.getElementById(errId);
+        if (!condition) {
+          errEl.classList.remove('hidden');
+          isValid = false;
+        } else {
+          errEl.classList.add('hidden');
+        }
+      }
+
+      validateField(fullName.value.trim() !== '', 'err-fullName');
+      
+      // Email Regex Validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      validateField(emailRegex.test(email.value.trim()), 'err-email');
+
+      // Phone Regex (11 digits, starts with 01)
+      const phoneRegex = /^01[3-9]\d{8}$/;
+      validateField(phoneRegex.test(phone.value.trim()), 'err-phone');
+
+      // URL Regex
+      const urlRegex = /^(https?:\/\/)?([\w\d\-_]+\.)+[\w\d\-_]+(\/.*)?$/;
+      validateField(urlRegex.test(socialLink.value.trim()), 'err-socialLink');
+
+      validateField(address.value.trim() !== '', 'err-address');
+
+      // Role Selection
+      const selectedRole = roleTeam.checked ? 'Core Team Member' : (roleVolunteer.checked ? 'General Volunteer' : '');
+      validateField(selectedRole !== '', 'err-role');
+
+      // Conditional Validation based on Role
+      if (selectedRole === 'Core Team Member') {
+        const department = document.getElementById('department');
+        const weeklyHours = document.getElementById('weeklyHours');
+        const teamExperience = document.getElementById('teamExperience');
+        const teamStatement = document.getElementById('teamStatement');
+
+        validateField(department.value !== '', 'err-department');
+        validateField(weeklyHours.value !== '', 'err-weeklyHours');
+        validateField(teamExperience.value.trim() !== '', 'err-teamExperience');
+        validateField(teamStatement.value.trim() !== '', 'err-teamStatement');
+
+      } else if (selectedRole === 'General Volunteer') {
+        const checkedInterests = document.querySelectorAll('input[name="interest"]:checked');
+        const onFieldAvailability = document.getElementById('onFieldAvailability');
+
+        validateField(checkedInterests.length > 0, 'err-interest');
+        validateField(onFieldAvailability.value !== '', 'err-onFieldAvailability');
+      }
+
+      if (isValid) {
+        // Collect form data
+        formDataObject = {
+          fullName: fullName.value.trim(),
+          email: email.value.trim(),
+          phone: phone.value.trim(),
+          socialLink: socialLink.value.trim(),
+          address: address.value.trim(),
+          role: selectedRole,
+          timestamp: new Date().toLocaleString('bn-BD')
+        };
+
+        if (selectedRole === 'Core Team Member') {
+          formDataObject.department = document.getElementById('department').value;
+          formDataObject.weeklyHours = document.getElementById('weeklyHours').value;
+          formDataObject.experience = document.getElementById('teamExperience').value.trim();
+          formDataObject.statement = document.getElementById('teamStatement').value.trim();
+        } else {
+          const interests = [];
+          document.querySelectorAll('input[name="interest"]:checked').forEach(cb => interests.push(cb.value));
+          formDataObject.interests = interests.join(', ');
+          formDataObject.onFieldAvailability = document.getElementById('onFieldAvailability').value;
+          formDataObject.contactPref = document.getElementById('contactPref').value;
+        }
+
+        showPreviewModal(formDataObject);
+      }
+    }
+
+    // Populate and Show Modal
+    function showPreviewModal(data) {
+      const container = document.getElementById('modalDataContent');
+      let html = `
+        <div class="bg-brand-dark p-4 rounded-lg space-y-2 border border-brand-border">
+          <p><strong class="text-brand-accent">নাম:</strong> ${data.fullName}</p>
+          <p><strong class="text-brand-accent">ইমেইল:</strong> ${data.email}</p>
+          <p><strong class="text-brand-accent">ফোন:</strong> ${data.phone}</p>
+          <p><strong class="text-brand-accent">সোশ্যাল মিডিয়া:</strong> <a href="${data.socialLink}" target="_blank" class="text-blue-400 underline break-all">${data.socialLink}</a></p>
+          <p><strong class="text-brand-accent">ঠিকানা:</strong> ${data.address}</p>
+          <p><strong class="text-brand-accent">মনোনীত ভূমিকা:</strong> <span class="bg-brand-accent/20 text-brand-accent font-bold px-2 py-0.5 rounded">${data.role}</span></p>
+        </div>
+      `;
+
+      if (data.role === 'Core Team Member') {
+        html += `
+          <div class="bg-brand-dark p-4 rounded-lg space-y-2 border border-brand-border">
+            <h4 class="font-bold text-white mb-2">কোর টিম ডিটেইলস:</h4>
+            <p><strong class="text-brand-accent">পছন্দের বিভাগ:</strong> ${data.department}</p>
+            <p><strong class="text-brand-accent">সাপ্তাহিক সময়:</strong> ${data.weeklyHours}</p>
+            <p><strong class="text-brand-accent">অভিজ্ঞতা:</strong> ${data.experience}</p>
+            <p><strong class="text-brand-accent">সংক্ষিপ্ত বক্তব্য:</strong> ${data.statement}</p>
+          </div>
+        `;
+      } else {
+        html += `
+          <div class="bg-brand-dark p-4 rounded-lg space-y-2 border border-brand-border">
+            <h4 class="font-bold text-white mb-2">ভলান্টিয়ার ডিটেইলস:</h4>
+            <p><strong class="text-brand-accent">আগ্রহের ক্ষেত্র:</strong> ${data.interests}</p>
+            <p><strong class="text-brand-accent">উপস্থিতির সম্মতি:</strong> ${data.onFieldAvailability}</p>
+            <p><strong class="text-brand-accent">যোগাযোগের পছন্দ:</strong> ${data.contactPref}</p>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+      document.getElementById('previewModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('previewModal').classList.add('hidden');
+    }
+
+    function confirmSubmission() {
+      alert('ধন্যবাদ! KindleSociety-এর সাথে যুক্ত হওয়ার আপনার আবেদনটি সফলভাবে গৃহীত হয়েছে।');
+      closeModal();
+      document.getElementById('registrationForm').reset();
+      document.getElementById('teamSection').classList.remove('active');
+      document.getElementById('volunteerSection').classList.remove('active');
+    }
+
+    // Export Data as JSON
+    function exportJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(formDataObject, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `KindleSociety_${formDataObject.fullName.replace(/\s+/g, '_')}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    // Export Data as CSV
+    function exportCSV() {
+      const keys = Object.keys(formDataObject);
+      const values = Object.values(formDataObject).map(val => `"${String(val).replace(/"/g, '""')}"`);
+      const csvContent = "data:text/csv;charset=utf-8," + keys.join(",") + "\n" + values.join(",");
+      
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", encodeURI(csvContent));
+      downloadAnchor.setAttribute("download", `KindleSociety_${formDataObject.fullName.replace(/\s+/g, '_')}.csv`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+  </script>
+</body>
+</html>

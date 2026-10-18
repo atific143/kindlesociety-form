@@ -44,28 +44,28 @@
       min-height: 100vh;
     }
 
-    /* Animated Gradient Title Effect */
-    @keyframes titleGlow {
+    /* Highly Visible & Smooth Animated Gradient Title Effect */
+    @keyframes superGlow {
       0% {
         background-position: 0% 50%;
-        text-shadow: 0 0 10px rgba(70, 178, 97, 0.3);
+        text-shadow: 0 0 10px rgba(70, 178, 97, 0.4);
       }
       50% {
         background-position: 100% 50%;
-        text-shadow: 0 0 25px rgba(70, 178, 97, 0.7);
+        text-shadow: 0 0 30px rgba(70, 178, 97, 0.9), 0 0 10px rgba(255, 255, 255, 0.6);
       }
       100% {
         background-position: 0% 50%;
-        text-shadow: 0 0 10px rgba(70, 178, 97, 0.3);
+        text-shadow: 0 0 10px rgba(70, 178, 97, 0.4);
       }
     }
 
     .animated-title {
-      background: linear-gradient(270deg, #FFFFFF, #46B261, #86efac, #FFFFFF);
+      background: linear-gradient(270deg, #FFFFFF, #46B261, #a7f3d0, #FFFFFF);
       background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: titleGlow 6s ease infinite;
+      animation: superGlow 4s ease infinite;
     }
 
     /* Smooth Expandable Sections with Arrow Animation */
@@ -150,7 +150,7 @@
       <div class="absolute -top-16 -right-16 w-48 h-48 bg-[#46B261]/20 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide mb-2 animated-title">
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-wide mb-2 animated-title">
         KindleSociety
       </h1>
       <p class="text-sm sm:text-base font-medium tracking-wide max-w-xl mx-auto text-[#46B261]">

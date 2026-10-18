@@ -44,6 +44,30 @@
       min-height: 100vh;
     }
 
+    /* Animated Gradient Title Effect */
+    @keyframes titleGlow {
+      0% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 10px rgba(70, 178, 97, 0.3);
+      }
+      50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 25px rgba(70, 178, 97, 0.7);
+      }
+      100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 10px rgba(70, 178, 97, 0.3);
+      }
+    }
+
+    .animated-title {
+      background: linear-gradient(270deg, #FFFFFF, #46B261, #86efac, #FFFFFF);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGlow 6s ease infinite;
+    }
+
     /* Smooth Expandable Sections with Arrow Animation */
     .expandable-section {
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -121,12 +145,12 @@
 
   <div class="w-full max-w-3xl bg-brand-card rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md relative mb-16">
     
-    <!-- 1. Header Banner (Logo Box Removed) -->
+    <!-- 1. Header Banner with Animated Title -->
     <div class="relative p-8 sm:p-10 text-center overflow-hidden border-b-4 border-[#46B261]" style="background: linear-gradient(135deg, #070f14 0%, #0d1b2a 50%, #163824 100%);">
       <div class="absolute -top-16 -right-16 w-48 h-48 bg-[#46B261]/20 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide mb-2 drop-shadow-md text-[#FFFFFF]">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide mb-2 animated-title">
         KindleSociety
       </h1>
       <p class="text-sm sm:text-base font-medium tracking-wide max-w-xl mx-auto text-[#46B261]">

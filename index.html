@@ -398,11 +398,11 @@
 
   <!-- Background Music Player Widget (Bottom Left) -->
   <div class="fixed bottom-3 left-3 sm:bottom-4 sm:left-4 z-50">
-    <audio id="bgAudio" loop>
-      <source src="https://actions.google.com/sounds/v1/ambiences/relaxing_music.ogg" type="audio/ogg">
+    <audio id="bgAudio" loop preload="auto">
+      <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-    <button onclick="toggleMusic()" id="musicBtn" class="branding-badge px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2.5 text-[#46B261] font-semibold text-xs sm:text-sm transition-all duration-300">
+    <button onclick="toggleMusic()" id="musicBtn" class="branding-badge px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2.5 text-[#46B261] font-semibold text-xs sm:text-sm transition-all duration-300 cursor-pointer">
       <i id="musicIcon" class="fa-solid fa-music text-base sm:text-lg"></i>
       <span id="musicText">Play Music</span>
     </button>
@@ -455,7 +455,8 @@
           musicText.innerText = "Pause Music";
           musicBtn.classList.add('music-btn-active');
         }).catch(err => {
-          console.log("Audio play blocked/error: ", err);
+          console.log("Audio play error: ", err);
+          alert("Could not play audio. Please click again.");
         });
       }
     }

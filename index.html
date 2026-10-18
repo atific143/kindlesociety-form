@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KindleSociety - Team & Volunteer Registration</title>
+  <title>KindleSociety - Team & Volunteer Registration Form</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Hind Siliguri -->
@@ -19,15 +19,15 @@
         extend: {
           colors: {
             brand: {
-              dark: '#09131a',     /* Logo inspired deep background */
-              card: '#112233',     /* Rich teal-dark card background */
-              accent: '#ff6b35',   /* Logo Fire Orange */
-              accentHover: '#e55a24',
-              secondary: '#00b4d8',/* Logo Teal/Cyan */
-              greenLogo: '#10b981',/* Logo Green tone */
-              input: '#1a3048',    /* Input field background */
-              border: '#2b4c6f',   /* Border highlight */
-              text: '#e2e8f0'
+              dark: '#070f14',
+              card: '#0d1b2a',
+              accent: '#DE4B18',
+              accentHover: '#c73e12',
+              secondary: '#46B261',
+              warning: '#FBBC42',
+              input: '#12263f',
+              border: '#203a5c',
+              text: '#FFFFFF'
             }
           },
           fontFamily: {
@@ -40,147 +40,201 @@
 
   <style>
     body {
-      background-color: #09131a;
-      color: #e2e8f0;
+      background: radial-gradient(circle at center, #0f2236 0%, #070f14 100%);
+      color: #FFFFFF;
       font-family: 'Hind Siliguri', sans-serif;
+      min-height: 100vh;
     }
 
+    /* Smooth Expandable Sections with Arrow Animation */
     .expandable-section {
-      transition: all 0.4s ease-in-out;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: translateY(-10px);
+      transform: translateY(-15px);
     }
 
     .expandable-section.active {
-      max-height: 1200px;
+      max-height: 1500px;
       opacity: 1;
       transform: translateY(0);
     }
 
+    /* Interactive Hover & Bubbling Effects */
+    .interactive-card {
+      transition: all 0.3s ease;
+    }
+    .interactive-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(222, 75, 24, 0.3);
+      border-color: #DE4B18;
+    }
+
     input[type="radio"]:checked + label,
     input[type="checkbox"]:checked + label {
-      border-color: #ff6b35;
-      background-color: rgba(255, 107, 53, 0.15);
+      border-color: #DE4B18;
+      background-color: rgba(222, 75, 24, 0.2);
       color: #ffffff;
+      box-shadow: 0 0 15px rgba(222, 75, 24, 0.4);
     }
 
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #09131a;
+      background: #070f14;
     }
     ::-webkit-scrollbar-thumb {
-      background: #2b4c6f;
+      background: #203a5c;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #ff6b35;
+      background: #DE4B18;
+    }
+
+    @media print {
+      body { background-color: #ffffff !important; color: #000000 !important; }
+      .no-print { display: none !important; }
+      .expandable-section { max-height: none !important; opacity: 1 !important; }
     }
   </style>
 </head>
-<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+<body class="py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
 
-  <div class="w-full max-w-3xl bg-brand-card rounded-2xl shadow-2xl border border-brand-border/60 overflow-hidden my-auto">
+  <!-- PDF Download Helper Button -->
+  <div class="w-full max-w-3xl mb-4 flex justify-end no-print">
+    <button onclick="window.print()" class="interactive-card px-4 py-2.5 bg-[#DE4B18] hover:bg-[#c73e12] text-white font-bold rounded-xl shadow-lg flex items-center gap-2">
+      <i class="fa-solid fa-file-pdf"></i> ফর্মটি PDF সেভ করুন
+    </button>
+  </div>
+
+  <div class="w-full max-w-3xl bg-brand-card rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md">
     
-    <!-- Header Banner: Styled with Logo's Fire Orange, Teal & Green Gradient -->
-    <div class="relative bg-gradient-to-r from-[#0077b6] via-[#112233] to-[#ff6b35] p-8 sm:p-10 text-center border-b-4 border-brand-accent overflow-hidden">
-      <div class="absolute -top-12 -right-12 w-44 h-44 bg-brand-accent/25 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-12 -left-12 w-44 h-44 bg-brand-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- 1. Header Banner -->
+    <div class="relative p-8 sm:p-10 text-center overflow-hidden border-b-4" style="background: linear-gradient(135deg, #070f14 0%, #0d1b2a 50%, #DE4B18 100%); border-color: #FBBC42;">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-[#DE4B18]/30 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+      <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-[#46B261]/25 rounded-full blur-3xl pointer-events-none"></div>
 
-      <!-- Logo Icon Badge -->
-      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-dark/90 border-2 border-brand-accent text-brand-accent shadow-xl mb-4 text-2xl font-bold">
-        <i class="fa-solid fa-fire text-brand-accent"></i>
+      <!-- Logo Image Circle -->
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#0d1b2a] border-2 shadow-2xl mb-4 overflow-hidden transform hover:rotate-6 transition duration-300" style="border-color: #FBBC42;">
+        <img src="hhhhh_2.jpg" alt="KindleSociety Logo" class="w-full h-full object-cover">
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-wide mb-2 drop-shadow-md">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide mb-2 drop-shadow-md text-[#FFFFFF]">
         KindleSociety
       </h1>
-      <p class="text-sm sm:text-base text-gray-200 font-medium tracking-wide max-w-xl mx-auto">
-        Empowering Youth, Building Community | টিম ও ভলান্টিয়ার রেজিস্ট্রেশন ফর্ম
+      <p class="text-sm sm:text-base font-medium tracking-wide max-w-xl mx-auto text-[#FBBC42]">
+        Empowering Youth, Building Community
       </p>
+      <div class="mt-3 inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-[#46B261] bg-[#070f14]/80 border border-[#46B261]/30 shadow-inner">
+        টিম ও ভলান্টিয়ার রেজিস্ট্রেশন ফর্ম
+      </div>
     </div>
 
     <!-- Form Container (Formspree Integrated) -->
-    <form id="registrationForm" class="p-6 sm:p-10 space-y-8" action="https://formspree.io/f/xvkzyowj" method="POST">
+    <form id="registrationForm" class="p-6 sm:p-10 space-y-8" action="https://formspree.io/f/xvkzyowj" method="POST" enctype="multipart/form-data">
       
-      <!-- Instructions Note -->
-      <div class="bg-brand-dark/80 border-l-4 border-brand-accent p-4 rounded-r-lg text-sm text-gray-300 flex items-start space-x-3 shadow-inner">
-        <i class="fa-solid fa-circle-info text-brand-accent text-lg mt-0.5"></i>
-        <span>অনুগ্রহ করে সকল সঠিক তথ্য প্রদান করে ফর্মটি পূরণ করুন। লাল স্টার (<span class="text-brand-accent font-bold">*</span>) চিহ্নিত ফিল্ডগুলো পূরণ করা বাধ্যতামূলক।</span>
+      <!-- Notice 1 -->
+      <div class="bg-[#070f14]/80 border-l-4 p-4 rounded-r-xl text-sm text-gray-300 flex items-start space-x-3 shadow-md" style="border-color: #DE4B18;">
+        <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#DE4B18]">
+          <i class="fa-solid fa-info"></i>
+        </div>
+        <span>অনুগ্রহ করে সকল সঠিক তথ্য প্রদান করে ফর্মটি পূরণ করুন। লাল স্টার (<span style="color: #DE4B18;" class="font-bold">*</span>) চিহ্নিত ফিল্ডগুলো বাধ্যতামূলক।</span>
       </div>
 
-      <!-- Basic Information Section -->
+      <!-- Notice 2 -->
+      <div class="bg-[#070f14]/80 border-l-4 p-4 rounded-r-xl text-sm text-gray-300 flex items-start space-x-3 shadow-md" style="border-color: #46B261;">
+        <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#46B261]">
+          <i class="fa-solid fa-hand-pointer"></i>
+        </div>
+        <span>নির্দেশনা: নিচে থেকে আপনার পছন্দের ভূমিকা নির্বাচন করুন। আপনার ক্লিকের সাথে সাথে সংশ্লিষ্ট ফরম সেকশনটি নিচে ওপেন হয়ে যাবে।</span>
+      </div>
+
+      <!-- 2. Basic Information Section -->
       <div class="space-y-5">
-        <h2 class="text-xl font-bold text-white border-b border-brand-border pb-2 flex items-center gap-2">
-          <i class="fa-solid fa-user-gear text-brand-accent"></i> মৌলিক তথ্য (Basic Info)
+        <h2 class="text-xl font-bold border-b pb-2 flex items-center gap-2 text-[#FFFFFF] border-brand-border">
+          <i class="fa-solid fa-user-gear text-[#DE4B18]"></i> মৌলিক তথ্য (Basic Info)
         </h2>
 
+        <!-- Full Name -->
         <div>
-          <label for="fullName" class="block text-sm font-semibold mb-1 text-gray-200">
-            পুরো নাম <span class="text-brand-accent">*</span>
+          <label for="fullName" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
+            পুরো নাম <span class="text-[#DE4B18]">*</span>
           </label>
           <input type="text" id="fullName" name="fullName" required placeholder="আপনার পুরো নাম লিখুন"
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
         </div>
 
+        <!-- Email & Phone Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label for="email" class="block text-sm font-semibold mb-1 text-gray-200">
-              ইমেইল ঠিকানা <span class="text-brand-accent">*</span>
+            <label for="email" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
+              ইমেইল ঠিকানা <span class="text-[#DE4B18]">*</span>
             </label>
             <input type="email" id="email" name="email" required placeholder="example@gmail.com"
-              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
           </div>
 
           <div>
-            <label for="phone" class="block text-sm font-semibold mb-1 text-gray-200">
-              ফোন / হোয়াটসঅ্যাপ নম্বর <span class="text-brand-accent">*</span>
+            <label for="phone" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
+              ফোন / হোয়াটসঅ্যাপ নম্বর <span class="text-[#DE4B18]">*</span>
             </label>
             <input type="tel" id="phone" name="phone" required placeholder="01XXXXXXXXX"
-              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
           </div>
         </div>
 
+        <!-- Social Media Profile -->
         <div>
-          <label for="socialLink" class="block text-sm font-semibold mb-1 text-gray-200">
-            সোশ্যাল মিডিয়া প্রোফাইল লিঙ্ক (Facebook / LinkedIn) <span class="text-brand-accent">*</span>
+          <label for="socialLink" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
+            সোশ্যাল মিডিয়া প্রোফাইল লিঙ্ক (Facebook / LinkedIn) <span class="text-[#DE4B18]">*</span>
           </label>
           <input type="url" id="socialLink" name="socialLink" required placeholder="https://facebook.com/yourprofile"
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition">
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
         </div>
 
+        <!-- Current Address -->
         <div>
-          <label for="address" class="block text-sm font-semibold mb-1 text-gray-200">
-            বর্তমান ঠিকানা <span class="text-brand-accent">*</span>
+          <label for="address" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
+            বর্তমান ঠিকানা <span class="text-[#DE4B18]">*</span>
           </label>
           <textarea id="address" name="address" rows="2" required placeholder="আপনার বর্তমান ঠিকানা বা এলাকার নাম লিখুন"
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"></textarea>
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner"></textarea>
+        </div>
+
+        <!-- Picture Upload Section -->
+        <div>
+          <label for="applicantPhoto" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
+            আপনার ছবি আপলোড করুন (Passport Size) <span class="text-[#DE4B18]">*</span>
+          </label>
+          <input type="file" id="applicantPhoto" name="applicantPhoto" accept="image/*" required
+            class="w-full px-4 py-2.5 bg-brand-input border border-brand-border rounded-xl text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#DE4B18] file:text-white hover:file:bg-[#c73e12] transition cursor-pointer shadow-inner">
         </div>
       </div>
 
-      <!-- Dynamic Role Selection -->
+      <!-- 3. Dynamic Role Selection -->
       <div class="space-y-4">
-        <h2 class="text-xl font-bold text-white border-b border-brand-border pb-2 flex items-center gap-2">
-          <i class="fa-solid fa-user-plus text-brand-accent"></i> ভূমিকা নির্বাচন (Role Selection) <span class="text-brand-accent">*</span>
+        <h2 class="text-xl font-bold border-b pb-2 flex items-center gap-2 text-[#FFFFFF] border-brand-border">
+          <i class="fa-solid fa-user-plus text-[#DE4B18]"></i> ভূমিকা নির্বাচন (Role Selection) <span class="text-[#DE4B18]">*</span>
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Core Team Option -->
           <div class="relative">
             <input type="radio" id="roleTeam" name="role" value="Core Team Member" class="peer hidden" onchange="handleRoleChange('team')" required>
-            <label for="roleTeam" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-accent/60 transition shadow-md">
-              <i class="fa-solid fa-users-gear text-3xl mb-2 text-brand-accent"></i>
+            <label for="roleTeam" class="interactive-card flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg">
+              <i class="fa-solid fa-users-gear text-3xl mb-2 text-[#DE4B18]"></i>
               <span class="font-bold text-lg text-white">কোর টিম মেম্বার</span>
               <span class="text-xs text-gray-300 text-center mt-1">সংগঠনের পরিচালন ও নেতৃত্বে ভূমিকা রাখতে চাইলে</span>
             </label>
           </div>
 
+          <!-- General Volunteer Option -->
           <div class="relative">
             <input type="radio" id="roleVolunteer" name="role" value="General Volunteer" class="peer hidden" onchange="handleRoleChange('volunteer')">
-            <label for="roleVolunteer" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-greenLogo/60 transition shadow-md">
-              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-brand-greenLogo"></i>
+            <label for="roleVolunteer" class="interactive-card flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg">
+              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-[#46B261]"></i>
               <span class="font-bold text-lg text-white">সাধারণ ভলান্টিয়ার</span>
               <span class="text-xs text-gray-300 text-center mt-1">বিভিন্ন ফিল্ডওয়ার্ক ও সোশ্যাল ড্রাইভে যুক্ত হতে চাইলে</span>
             </label>
@@ -188,15 +242,20 @@
         </div>
       </div>
 
-      <!-- SECTION 3A: Core Team Details -->
-      <div id="teamSection" class="expandable-section space-y-5 bg-brand-dark/50 p-6 rounded-xl border-l-4 border-brand-accent shadow-inner">
-        <h3 class="text-lg font-bold text-brand-accent flex items-center gap-2">
+      <!-- Animated Arrow Indicator -->
+      <div id="selectionArrow" class="text-center hidden transition-all duration-300">
+        <i class="fa-solid fa-arrow-down-long text-3xl text-[#DE4B18] animate-bounce"></i>
+      </div>
+
+      <!-- SECTION 3A: Core Team Details (Expandable) -->
+      <div id="teamSection" class="expandable-section space-y-5 bg-[#070f14]/70 p-6 rounded-2xl border-l-4 border-[#DE4B18] shadow-xl">
+        <h3 class="text-lg font-bold text-[#DE4B18] flex items-center gap-2">
           <i class="fa-solid fa-sitemap"></i> কোর টিম তথ্য (Core Team Section)
         </h3>
 
         <div>
-          <label for="department" class="block text-sm font-semibold mb-1 text-gray-200">পছন্দের বিভাগ (Preferred Department)</label>
-          <select id="department" name="department" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+          <label for="department" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">পছন্দের বিভাগ (Preferred Department)</label>
+          <select id="department" name="department" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#DE4B18]">
             <option value="">-- বিভাগ নির্বাচন করুন --</option>
             <option value="HR & Admin">HR & Administration (মানবসম্পদ ও প্রশাসন)</option>
             <option value="Finance">Finance & Accounts (অর্থ বিভাগ)</option>
@@ -208,8 +267,8 @@
         </div>
 
         <div>
-          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-gray-200">সفته কত ঘণ্টা সময় দিতে পারবেন?</label>
-          <select id="weeklyHours" name="weeklyHours" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">সপ্তাহে কত ঘণ্টা সময় দিতে পারবেন?</label>
+          <select id="weeklyHours" name="weeklyHours" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#DE4B18]">
             <option value="">-- সময়কাল নির্বাচন করুন --</option>
             <option value="3-5 Hours">৩ - ৫ ঘণ্টা</option>
             <option value="5-10 Hours">৫ - ১০ ঘণ্টা</option>
@@ -218,57 +277,57 @@
         </div>
 
         <div>
-          <label for="teamExperience" class="block text-sm font-semibold mb-1 text-gray-200">পূর্ব অভিজ্ঞতা ও বিশেষ দক্ষতা</label>
+          <label for="teamExperience" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">পূর্ব অভিজ্ঞতা ও বিশেষ দক্ষতা</label>
           <textarea id="teamExperience" name="teamExperience" rows="3" placeholder="অভিজ্ঞতা বা দক্ষতার কথা লিখুন..."
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18]"></textarea>
         </div>
 
         <div>
-          <label for="teamStatement" class="block text-sm font-semibold mb-1 text-gray-200">কেন আপনি KindleSociety-এর লিডারশিপ টিমে যুক্ত হতে চান?</label>
+          <label for="teamStatement" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">কেন আপনি KindleSociety-এর লিডারশিপ টিমে যুক্ত হতে চান?</label>
           <textarea id="teamStatement" name="teamStatement" rows="3" placeholder="আপনার উদ্দেশ্য ও দৃষ্টিভঙ্গি সংক্ষেপে লিখুন..."
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18]"></textarea>
         </div>
       </div>
 
-      <!-- SECTION 3B: Volunteer Details -->
-      <div id="volunteerSection" class="expandable-section space-y-5 bg-brand-dark/50 p-6 rounded-xl border-l-4 border-brand-greenLogo shadow-inner">
-        <h3 class="text-lg font-bold text-brand-greenLogo flex items-center gap-2">
+      <!-- SECTION 3B: Volunteer Details (Expandable) -->
+      <div id="volunteerSection" class="expandable-section space-y-5 bg-[#070f14]/70 p-6 rounded-2xl border-l-4 border-[#46B261] shadow-xl">
+        <h3 class="text-lg font-bold text-[#46B261] flex items-center gap-2">
           <i class="fa-solid fa-hands-holding-child"></i> ভলান্টিয়ার তথ্য (Volunteer Section)
         </h3>
 
         <div>
-          <label class="block text-sm font-semibold mb-2 text-gray-200">কাজের পছন্দনীয় ক্ষেত্র</label>
+          <label class="block text-sm font-semibold mb-2 text-[#FFFFFF]">কাজের পছন্দনীয় ক্ষেত্র</label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div class="relative">
               <input type="checkbox" id="int1" name="interest" value="Food Drive & Relief Work" class="peer hidden">
-              <label for="int1" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
-                <i class="fa-solid fa-box-tissue text-brand-greenLogo"></i> ত্রাণ ও খাদ্য বিতরণ
+              <label for="int1" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-box-tissue text-[#46B261]"></i> ত্রাণ ও খাদ্য বিতরণ
               </label>
             </div>
             <div class="relative">
               <input type="checkbox" id="int2" name="interest" value="Event Management" class="peer hidden">
-              <label for="int2" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
-                <i class="fa-solid fa-calendar-check text-brand-greenLogo"></i> ইভেন্ট ম্যানেজমেন্ট
+              <label for="int2" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-calendar-check text-[#46B261]"></i> ইভেন্ট ম্যানেজমেন্ট
               </label>
             </div>
             <div class="relative">
               <input type="checkbox" id="int3" name="interest" value="Photography & Media" class="peer hidden">
-              <label for="int3" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
-                <i class="fa-solid fa-camera text-brand-greenLogo"></i> ফটোগ্রাফি ও মিডিয়া
+              <label for="int3" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-camera text-[#46B261]"></i> ফটোগ্রাফি ও মিডিয়া
               </label>
             </div>
             <div class="relative">
               <input type="checkbox" id="int4" name="interest" value="Social Media Campaign" class="peer hidden">
-              <label for="int4" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
-                <i class="fa-solid fa-share-nodes text-brand-greenLogo"></i> প্রচার ও অনলাইন ক্যাম্পেইন
+              <label for="int4" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-share-nodes text-[#46B261]"></i> প্রচার ও অনলাইন ক্যাম্পেইন
               </label>
             </div>
           </div>
         </div>
 
         <div>
-          <label for="onFieldAvailability" class="block text-sm font-semibold mb-1 text-gray-200">ফিল্ডওয়ার্কে সরাসরি অংশগ্রহণের সম্মতি</label>
-          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-greenLogo">
+          <label for="onFieldAvailability" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">ফিল্ডওয়ার্কে সরাসরি অংশগ্রহণের সম্মতি</label>
+          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
             <option value="">-- পছন্দ নির্বাচন করুন --</option>
             <option value="Yes, available anytime">হ্যাঁ, যেকোনো সময় উপস্থিত হতে পারবো</option>
             <option value="Chittagong area only">শুধুমাত্র চট্টগ্রাম শহরের ভেতরে হলে পারবো</option>
@@ -277,8 +336,8 @@
         </div>
 
         <div>
-          <label for="contactPref" class="block text-sm font-semibold mb-1 text-gray-200">জরুরি প্রয়োজনে যোগাযোগের মাধ্যম</label>
-          <select id="contactPref" name="contactPref" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-greenLogo">
+          <label for="contactPref" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">জরুরি প্রয়োজনে যোগাযোগের মাধ্যম</label>
+          <select id="contactPref" name="contactPref" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
             <option value="WhatsApp">WhatsApp Message</option>
             <option value="Phone Call">Direct Phone Call</option>
             <option value="Email">Email</option>
@@ -289,18 +348,21 @@
       <!-- Submit Button -->
       <div class="pt-4">
         <button type="submit"
-          class="w-full py-4 px-8 bg-gradient-to-r from-brand-accent to-orange-600 hover:from-brand-accentHover hover:to-orange-700 text-white font-bold text-lg rounded-xl shadow-xl transform active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+          class="interactive-card w-full py-4 px-8 bg-gradient-to-r from-[#DE4B18] to-orange-600 hover:from-[#c73e12] hover:to-orange-700 text-white font-bold text-lg rounded-2xl shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
           <i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন (Submit Application)
         </button>
       </div>
     </form>
   </div>
 
-  <!-- JavaScript Logic -->
+  <!-- JavaScript Logic for Animated Arrow & Role Toggle -->
   <script>
     function handleRoleChange(role) {
       const teamSec = document.getElementById('teamSection');
       const volSec = document.getElementById('volunteerSection');
+      const arrow = document.getElementById('selectionArrow');
+
+      arrow.classList.remove('hidden');
 
       if (role === 'team') {
         teamSec.classList.add('active');

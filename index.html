@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,6 +69,17 @@
       border-color: #46B261;
     }
 
+    /* Custom White Branding Badge Glow Effect */
+    .branding-badge {
+      background-color: #FFFFFF;
+      border: 2px solid #46B261;
+      transition: all 0.4s ease;
+    }
+    .branding-badge:hover {
+      box-shadow: 0 0 20px rgba(70, 178, 97, 0.6);
+      transform: translateY(-3px);
+    }
+
     input[type="radio"]:checked + label,
     input[type="checkbox"]:checked + label {
       border-color: #46B261;
@@ -98,7 +109,7 @@
     }
   </style>
 </head>
-<body class="py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+<body class="py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center relative min-h-screen">
 
   <!-- PDF Download Helper Button -->
   <div class="w-full max-w-3xl mb-4 flex justify-end no-print">
@@ -107,7 +118,7 @@
     </button>
   </div>
 
-  <div class="w-full max-w-3xl bg-brand-card rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md">
+  <div class="w-full max-w-3xl bg-brand-card rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md relative">
     
     <!-- 1. Header Banner (Leaf Green & White Only) -->
     <div class="relative p-8 sm:p-10 text-center overflow-hidden border-b-4 border-[#46B261]" style="background: linear-gradient(135deg, #070f14 0%, #0d1b2a 50%, #163824 100%);">
@@ -138,7 +149,7 @@
         <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#46B261]">
           <i class="fa-solid fa-info"></i>
         </div>
-        <span>Please fill out the form with correct information. Fields marked with red star (<span class="text-[#46B261] font-bold">*</span>) are mandatory.</span>
+        <span>Please fill out the form with correct information. Fields marked with green star (<span class="text-[#46B261] font-bold">*</span>) are mandatory.</span>
       </div>
 
       <!-- Notice 2 -->
@@ -211,4 +222,104 @@
         </div>
       </div>
 
-      <!-- 3. Dynamic Role
+      <!-- 3. Dynamic Role Selection (Core Team vs Volunteer) -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold border-b border-brand-border pb-2 flex items-center gap-2 text-[#FFFFFF]">
+          <i class="fa-solid fa-user-plus text-[#46B261]"></i> Role Selection <span class="text-[#46B261]">*</span>
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Core Team Option -->
+          <div class="relative">
+            <input type="radio" id="roleTeam" name="role" value="Core Team Member" class="peer hidden" onchange="handleRoleChange('team')" required>
+            <label for="roleTeam" class="interactive-card flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg">
+              <i class="fa-solid fa-users-gear text-3xl mb-2 text-[#46B261]"></i>
+              <span class="font-bold text-lg text-white">Core Team Member</span>
+              <span class="text-xs text-gray-300 text-center mt-1">Want to play a role in organization management & leadership</span>
+            </label>
+          </div>
+
+          <!-- General Volunteer Option -->
+          <div class="relative">
+            <input type="radio" id="roleVolunteer" name="role" value="General Volunteer" class="peer hidden" onchange="handleRoleChange('volunteer')">
+            <label for="roleVolunteer" class="interactive-card flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg">
+              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-[#46B261]"></i>
+              <span class="font-bold text-lg text-white">General Volunteer</span>
+              <span class="text-xs text-gray-300 text-center mt-1">Want to join various fieldwork & social drives</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Arrow Indicator -->
+      <div id="selectionArrow" class="text-center hidden transition-all duration-300">
+        <i class="fa-solid fa-arrow-down-long text-3xl text-[#46B261] animate-bounce"></i>
+      </div>
+
+      <!-- SECTION 3A: Core Team Details (Expandable) -->
+      <div id="teamSection" class="expandable-section space-y-5 bg-[#070f14]/70 p-6 rounded-2xl border-l-4 border-[#46B261] shadow-xl">
+        <h3 class="text-lg font-bold text-[#46B261] flex items-center gap-2">
+          <i class="fa-solid fa-sitemap"></i> Core Team Information
+        </h3>
+
+        <div>
+          <label for="department" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Preferred Department</label>
+          <select id="department" name="department" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
+            <option value="">-- Select Department --</option>
+            <option value="HR & Admin">HR & Administration</option>
+            <option value="Finance">Finance & Accounts</option>
+            <option value="Operations">Operations & Field Work</option>
+            <option value="Media & PR">Media & PR</option>
+            <option value="IT & Graphics">IT, Graphics & Content</option>
+            <option value="Outreach">Outreach & Networking</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">How many hours can you give weekly?</label>
+          <select id="weeklyHours" name="weeklyHours" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
+            <option value="">-- Select Time --</option>
+            <option value="3-5 Hours">3 - 5 Hours</option>
+            <option value="5-10 Hours">5 - 10 Hours</option>
+            <option value="10+ Hours">10+ Hours</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="teamExperience" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Previous Experience & Special Skills</label>
+          <textarea id="teamExperience" name="teamExperience" rows="3" placeholder="Write about your experience or skills..."
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261]"></textarea>
+        </div>
+
+        <div>
+          <label for="teamStatement" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Why do you want to join the KindleSociety Leadership Team?</label>
+          <textarea id="teamStatement" name="teamStatement" rows="3" placeholder="Write your purpose and vision briefly..."
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261]"></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 3B: Volunteer Details (Expandable) -->
+      <div id="volunteerSection" class="expandable-section space-y-5 bg-[#070f14]/70 p-6 rounded-2xl border-l-4 border-[#46B261] shadow-xl">
+        <h3 class="text-lg font-bold text-[#46B261] flex items-center gap-2">
+          <i class="fa-solid fa-hands-holding-child"></i> Volunteer Information
+        </h3>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2 text-[#FFFFFF]">Preferred Areas of Work</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="relative">
+              <input type="checkbox" id="int1" name="interest" value="Food Drive & Relief Work" class="peer hidden">
+              <label for="int1" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-box-tissue text-[#46B261]"></i> Food Drive & Relief Work
+              </label>
+            </div>
+            <div class="relative">
+              <input type="checkbox" id="int2" name="interest" value="Event Management" class="peer hidden">
+              <label for="int2" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-calendar-check text-[#46B261]"></i> Event Management
+              </label>
+            </div>
+            <div class="relative">
+              <input type="checkbox" id="int3" name="interest" value="Photography & Media" class="peer hidden">
+              <label for="int3" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
+                <i class="fa-solid fa-camera text

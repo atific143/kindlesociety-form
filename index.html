@@ -75,7 +75,7 @@
       margin-top: 6px;
     }
 
-    /* Interactive Hover & Bubbling Effects */
+    /* Interactive Hover Effects */
     .interactive-card {
       transition: all 0.3s ease;
     }
@@ -115,22 +115,9 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #46B261;
     }
-
-    @media print {
-      body { background-color: #ffffff !important; color: #000000 !important; }
-      .no-print { display: none !important; }
-      .expandable-section { max-height: none !important; opacity: 1 !important; }
-    }
   </style>
 </head>
 <body class="py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center relative min-h-screen">
-
-  <!-- PDF Download Helper Button -->
-  <div class="w-full max-w-3xl mb-4 flex justify-end no-print">
-    <button onclick="window.print()" class="interactive-card px-4 py-2.5 bg-[#46B261] hover:bg-[#399450] text-white font-bold rounded-xl shadow-lg flex items-center gap-2">
-      <i class="fa-solid fa-file-pdf"></i> Save Form as PDF
-    </button>
-  </div>
 
   <div class="w-full max-w-3xl bg-brand-card rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md relative mb-16">
     
@@ -379,7 +366,7 @@
   </div>
 
   <!-- White Branding Badge at Bottom Right Corner -->
-  <div class="fixed bottom-4 right-4 z-50 no-print">
+  <div class="fixed bottom-4 right-4 z-50">
     <div class="branding-badge px-4 py-3 rounded-2xl shadow-2xl text-center backdrop-blur-sm">
       <p class="text-xs font-bold tracking-wide text-[#46B261]">Built With Nextore Technologies</p>
       <p class="text-[11px] font-semibold tracking-wide text-[#46B261] mt-0.5">Engineered By Atifur Rahman</p>

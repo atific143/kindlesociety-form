@@ -21,12 +21,10 @@
             brand: {
               dark: '#070f14',
               card: '#0d1b2a',
-              accent: '#DE4B18',
-              accentHover: '#c73e12',
-              secondary: '#46B261',
-              warning: '#FBBC42',
+              green: '#46B261',
+              greenHover: '#399450',
               input: '#12263f',
-              border: '#203a5c',
+              border: '#1e3a5f',
               text: '#FFFFFF'
             }
           },
@@ -67,16 +65,16 @@
     }
     .interactive-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(222, 75, 24, 0.3);
-      border-color: #DE4B18;
+      box-shadow: 0 10px 25px -5px rgba(70, 178, 97, 0.3);
+      border-color: #46B261;
     }
 
     input[type="radio"]:checked + label,
     input[type="checkbox"]:checked + label {
-      border-color: #DE4B18;
-      background-color: rgba(222, 75, 24, 0.2);
+      border-color: #46B261;
+      background-color: rgba(70, 178, 97, 0.2);
       color: #ffffff;
-      box-shadow: 0 0 15px rgba(222, 75, 24, 0.4);
+      box-shadow: 0 0 15px rgba(70, 178, 97, 0.4);
     }
 
     ::-webkit-scrollbar {
@@ -86,11 +84,11 @@
       background: #070f14;
     }
     ::-webkit-scrollbar-thumb {
-      background: #203a5c;
+      background: #1e3a5f;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #DE4B18;
+      background: #46B261;
     }
 
     @media print {
@@ -104,31 +102,31 @@
 
   <!-- PDF Download Helper Button -->
   <div class="w-full max-w-3xl mb-4 flex justify-end no-print">
-    <button onclick="window.print()" class="interactive-card px-4 py-2.5 bg-[#DE4B18] hover:bg-[#c73e12] text-white font-bold rounded-xl shadow-lg flex items-center gap-2">
-      <i class="fa-solid fa-file-pdf"></i> form-ti PDF save korun
+    <button onclick="window.print()" class="interactive-card px-4 py-2.5 bg-[#46B261] hover:bg-[#399450] text-white font-bold rounded-xl shadow-lg flex items-center gap-2">
+      <i class="fa-solid fa-file-pdf"></i> Save Form as PDF
     </button>
   </div>
 
   <div class="w-full max-w-3xl bg-brand-card rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md">
     
-    <!-- 1. Header Banner -->
-    <div class="relative p-8 sm:p-10 text-center overflow-hidden border-b-4" style="background: linear-gradient(135deg, #0d233a 0%, #112233 50%, #DE4B18 100%); border-color: #FBBC42;">
-      <div class="absolute -top-16 -right-16 w-48 h-48 bg-[#DE4B18]/30 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-[#46B261]/25 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- 1. Header Banner (Leaf Green & White Only) -->
+    <div class="relative p-8 sm:p-10 text-center overflow-hidden border-b-4 border-[#46B261]" style="background: linear-gradient(135deg, #070f14 0%, #0d1b2a 50%, #163824 100%);">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-[#46B261]/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <!-- Logo Image Circle -->
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#070f14] border-2 shadow-2xl mb-4 overflow-hidden transform hover:scale-105 transition duration-300" style="border-color: #FBBC42;">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#070f14] border-2 border-[#46B261] shadow-2xl mb-4 overflow-hidden transform hover:scale-105 transition duration-300">
         <img src="hhhhh_2.jpg" alt="KindleSociety Logo" class="w-full h-full object-cover">
       </div>
 
       <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide mb-2 drop-shadow-md text-[#FFFFFF]">
         KindleSociety
       </h1>
-      <p class="text-sm sm:text-base font-medium tracking-wide max-w-xl mx-auto text-[#FBBC42]">
+      <p class="text-sm sm:text-base font-medium tracking-wide max-w-xl mx-auto text-[#46B261]">
         Empowering Youth, Building Community
       </p>
-      <div class="mt-3 inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-[#46B261] bg-[#070f14]/90 border border-[#46B261]/40 shadow-inner">
-        팀 ও ভলান্টিয়ার রেজিস্ট্রেশন ফর্ম
+      <div class="mt-3 inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-[#FFFFFF] bg-[#070f14]/90 border border-[#46B261]/50 shadow-inner">
+        Team & Volunteer Registration Form
       </div>
     </div>
 
@@ -136,242 +134,81 @@
     <form id="registrationForm" class="p-6 sm:p-10 space-y-8" action="https://formspree.io/f/xvkzyowj" method="POST" enctype="multipart/form-data">
       
       <!-- Notice 1 -->
-      <div class="bg-[#070f14]/80 border-l-4 p-4 rounded-r-xl text-sm text-gray-300 flex items-start space-x-3 shadow-md" style="border-color: #DE4B18;">
-        <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#DE4B18]">
+      <div class="bg-[#070f14]/80 border-l-4 border-[#46B261] p-4 rounded-r-xl text-sm text-gray-300 flex items-start space-x-3 shadow-md">
+        <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#46B261]">
           <i class="fa-solid fa-info"></i>
         </div>
-        <span>Anugraho kore sokol sothik tottho prodan kore form-ti puron korun. Lal star (<span style="color: #DE4B18;" class="font-bold">*</span>) ch चिह्नित field-gulo maddhom-e puroon kora badhtamulok.</span>
+        <span>Please fill out the form with correct information. Fields marked with red star (<span class="text-[#46B261] font-bold">*</span>) are mandatory.</span>
       </div>
 
       <!-- Notice 2 -->
-      <div class="bg-[#070f14]/80 border-l-4 p-4 rounded-r-xl text-sm text-gray-300 flex items-start space-x-3 shadow-md" style="border-color: #46B261;">
+      <div class="bg-[#070f14]/80 border-l-4 border-[#46B261] p-4 rounded-r-xl text-sm text-gray-300 flex items-start space-x-3 shadow-md">
         <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#46B261]">
           <i class="fa-solid fa-hand-pointer"></i>
         </div>
-        <span>Nirdeshona: Niche theke apnar pochhonder bhumika nirbachon korun. Apnar click-er sathe sathe songligno form section-ti niche open hoye jabe.</span>
+        <span>Instruction: Select your preferred role below. Clicking an option will automatically open the corresponding section.</span>
       </div>
 
       <!-- 2. Basic Information Section -->
       <div class="space-y-5">
-        <h2 class="text-xl font-bold border-b pb-2 flex items-center gap-2 text-[#FFFFFF] border-brand-border">
-          <i class="fa-solid fa-user-gear text-[#DE4B18]"></i> মৌলিক তথ্য (Basic Info)
+        <h2 class="text-xl font-bold border-b border-brand-border pb-2 flex items-center gap-2 text-[#FFFFFF]">
+          <i class="fa-solid fa-user-gear text-[#46B261]"></i> Basic Information
         </h2>
 
         <!-- Full Name -->
         <div>
           <label for="fullName" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Puro nam <span class="text-[#DE4B18]">*</span>
+            Full Name <span class="text-[#46B261]">*</span>
           </label>
-          <input type="text" id="fullName" name="fullName" required placeholder="Apnar puro nam likhun"
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
+          <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name"
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
         </div>
 
         <!-- Email & Phone Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label for="email" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
-              Email thikana <span class="text-[#DE4B18]">*</span>
+              Email Address <span class="text-[#46B261]">*</span>
             </label>
             <input type="email" id="email" name="email" required placeholder="example@gmail.com"
-              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
+              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
           </div>
 
           <div>
             <label for="phone" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
-              Phone / WhatsApp number <span class="text-[#DE4B18]">*</span>
+              Phone / WhatsApp Number <span class="text-[#46B261]">*</span>
             </label>
             <input type="tel" id="phone" name="phone" required placeholder="01XXXXXXXXX"
-              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
+              class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
           </div>
         </div>
 
         <!-- Social Media Profile -->
         <div>
           <label for="socialLink" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Social media profile link (Facebook / LinkedIn) <span class="text-[#DE4B18]">*</span>
+            Social Media Profile Link (Facebook / LinkedIn) <span class="text-[#46B261]">*</span>
           </label>
           <input type="url" id="socialLink" name="socialLink" required placeholder="https://facebook.com/yourprofile"
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner">
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
         </div>
 
         <!-- Current Address -->
         <div>
           <label for="address" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Bortoman thikana <span class="text-[#DE4B18]">*</span>
+            Current Address <span class="text-[#46B261]">*</span>
           </label>
-          <textarea id="address" name="address" rows="2" required placeholder="Apnar bortoman thikana ba elakar nam likhun"
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18] transition shadow-inner"></textarea>
+          <textarea id="address" name="address" rows="2" required placeholder="Enter your current address or area name"
+            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner"></textarea>
         </div>
 
         <!-- Picture Upload Section -->
         <div>
           <label for="applicantPhoto" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Apnar chhobi upload korun (Passport Size) <span class="text-[#DE4B18]">*</span>
+            Upload Your Photo (Passport Size) <span class="text-[#46B261]">*</span>
           </label>
           <input type="file" id="applicantPhoto" name="applicantPhoto" accept="image/*" required
-            class="w-full px-4 py-2.5 bg-brand-input border border-brand-border rounded-xl text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#DE4B18] file:text-white hover:file:bg-[#c73e12] transition cursor-pointer shadow-inner">
+            class="w-full px-4 py-2.5 bg-brand-input border border-brand-border rounded-xl text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#46B261] file:text-white hover:file:bg-[#399450] transition cursor-pointer shadow-inner">
         </div>
       </div>
 
-      <!-- 3. Dynamic Role Selection -->
-      <div class="space-y-4">
-        <h2 class="text-xl font-bold border-b pb-2 flex items-center gap-2 text-[#FFFFFF] border-brand-border">
-          <i class="fa-solid fa-user-plus text-[#DE4B18]"></i> Bhumika nirbachon (Role Selection) <span class="text-[#DE4B18]">*</span>
-        </h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Core Team Option -->
-          <div class="relative">
-            <input type="radio" id="roleTeam" name="role" value="Core Team Member" class="peer hidden" onchange="handleRoleChange('team')" required>
-            <label for="roleTeam" class="interactive-card flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg">
-              <i class="fa-solid fa-users-gear text-3xl mb-2 text-[#DE4B18]"></i>
-              <span class="font-bold text-lg text-white">Core Team Member</span>
-              <span class="text-xs text-gray-300 text-center mt-1">Songothoner porichalon o netritte bhumika rakhte chaile</span>
-            </label>
-          </div>
-
-          <!-- General Volunteer Option -->
-          <div class="relative">
-            <input type="radio" id="roleVolunteer" name="role" value="General Volunteer" class="peer hidden" onchange="handleRoleChange('volunteer')">
-            <label for="roleVolunteer" class="interactive-card flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg">
-              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-[#46B261]"></i>
-              <span class="font-bold text-lg text-white">General Volunteer</span>
-              <span class="text-xs text-gray-300 text-center mt-1">Bibhinno fieldwork o social drive-e jukto hote chaile</span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Animated Arrow Indicator -->
-      <div id="selectionArrow" class="text-center hidden transition-all duration-300">
-        <i class="fa-solid fa-arrow-down-long text-3xl text-[#DE4B18] animate-bounce"></i>
-      </div>
-
-      <!-- SECTION 3A: Core Team Details (Expandable) -->
-      <div id="teamSection" class="expandable-section space-y-5 bg-[#070f14]/70 p-6 rounded-2xl border-l-4 border-[#DE4B18] shadow-xl">
-        <h3 class="text-lg font-bold text-[#DE4B18] flex items-center gap-2">
-          <i class="fa-solid fa-sitemap"></i> Core Team Information
-        </h3>
-
-        <div>
-          <label for="department" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Pochhonder bibhag (Preferred Department)</label>
-          <select id="department" name="department" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#DE4B18]">
-            <option value="">-- Bibhag nirbachon korun --</option>
-            <option value="HR & Admin">HR & Administration (Manobsompad o proshashon)</option>
-            <option value="Finance">Finance & Accounts (Ortho bibhag)</option>
-            <option value="Operations">Operations & Field Work (Operations)</option>
-            <option value="Media & PR">Media & PR (Media o jonosongjog)</option>
-            <option value="IT & Graphics">IT, Graphics & Content (IT o content)</option>
-            <option value="Outreach">Outreach & Networking (Outreach)</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Soptah-e koto ghonta somoy dite parben?</label>
-          <select id="weeklyHours" name="weeklyHours" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#DE4B18]">
-            <option value="">-- Somoykal nirbachon korun --</option>
-            <option value="3-5 Hours">3 - 5 ghonta</option>
-            <option value="5-10 Hours">5 - 10 ghonta</option>
-            <option value="10+ Hours">10+ ghonta</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="teamExperience" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Purbo oviggota o bishesh dokkhota</label>
-          <textarea id="teamExperience" name="teamExperience" rows="3" placeholder="Oviggota ba dokkhotar kotha likhun..."
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18]"></textarea>
-        </div>
-
-        <div>
-          <label for="teamStatement" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Keno apni KindleSociety-er leadership team-e jukto hote chan?</label>
-          <textarea id="teamStatement" name="teamStatement" rows="3" placeholder="Apnar uddessho o drishtibongshi songkkhepe likhun..."
-            class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#DE4B18]"></textarea>
-        </div>
-      </div>
-
-      <!-- SECTION 3B: Volunteer Details (Expandable) -->
-      <div id="volunteerSection" class="expandable-section space-y-5 bg-[#070f14]/70 p-6 rounded-2xl border-l-4 border-[#46B261] shadow-xl">
-        <h3 class="text-lg font-bold text-[#46B261] flex items-center gap-2">
-          <i class="fa-solid fa-hands-holding-child"></i> Volunteer Information
-        </h3>
-
-        <div>
-          <label class="block text-sm font-semibold mb-2 text-[#FFFFFF]">Kajer pochhonio kkhetro</label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="relative">
-              <input type="checkbox" id="int1" name="interest" value="Food Drive & Relief Work" class="peer hidden">
-              <label for="int1" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
-                <i class="fa-solid fa-box-tissue text-[#46B261]"></i> Tran o khaddyo bitron
-              </label>
-            </div>
-            <div class="relative">
-              <input type="checkbox" id="int2" name="interest" value="Event Management" class="peer hidden">
-              <label for="int2" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
-                <i class="fa-solid fa-calendar-check text-[#46B261]"></i> Event management
-              </label>
-            </div>
-            <div class="relative">
-              <input type="checkbox" id="int3" name="interest" value="Photography & Media" class="peer hidden">
-              <label for="int3" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
-                <i class="fa-solid fa-camera text-[#46B261]"></i> Photography o media
-              </label>
-            </div>
-            <div class="relative">
-              <input type="checkbox" id="int4" name="interest" value="Social Media Campaign" class="peer hidden">
-              <label for="int4" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-sm">
-                <i class="fa-solid fa-share-nodes text-[#46B261]"></i> Prochar o online campaign
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <label for="onFieldAvailability" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Fieldwork-e sorsori ongshogrohoner sommoti</label>
-          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
-            <option value="">-- Pochhondo nirbachon korun --</option>
-            <option value="Yes, available anytime">Hn, jekono somoy upasthit hote parbo</option>
-            <option value="Chittagong area only">Shudhumatro Chattogram shohorer bhetore hole parbo</option>
-            <option value="Online / Remote work preferred">Online / Remote kaje agrohi</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="contactPref" class="block text-sm font-semibold mb-1 text-[#FFFFFF]">Joruri proyojone jogajoger maddhom</label>
-          <select id="contactPref" name="contactPref" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
-            <option value="WhatsApp">WhatsApp Message</option>
-            <option value="Phone Call">Direct Phone Call</option>
-            <option value="Email">Email</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Submit Button -->
-      <div class="pt-4">
-        <button type="submit"
-          class="interactive-card w-full py-4 px-8 bg-gradient-to-r from-[#DE4B18] to-orange-600 hover:from-[#c73e12] hover:to-orange-700 text-white font-bold text-lg rounded-2xl shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
-          <i class="fa-solid fa-paper-plane"></i> Tottho joma din (Submit Application)
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <!-- JavaScript Logic for Animated Arrow & Role Toggle -->
-  <script>
-    function handleRoleChange(role) {
-      const teamSec = document.getElementById('teamSection');
-      const volSec = document.getElementById('volunteerSection');
-      const arrow = document.getElementById('selectionArrow');
-
-      arrow.classList.remove('hidden');
-
-      if (role === 'team') {
-        teamSec.classList.add('active');
-        volSec.classList.remove('active');
-      } else if (role === 'volunteer') {
-        volSec.classList.add('active');
-        teamSec.classList.remove('active');
-      }
-    }
-  </script>
-</body>
-</html>
+      <!-- 3. Dynamic Role

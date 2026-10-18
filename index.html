@@ -19,13 +19,15 @@
         extend: {
           colors: {
             brand: {
-              dark: '#0d1b2a',
-              card: '#1b263b',
-              accent: '#ff7f50',
-              accentHover: '#e0663b',
-              input: '#2b3a4e',
-              border: '#415a77',
-              text: '#e0e1dd'
+              dark: '#09131a',     /* Logo inspired deep background */
+              card: '#112233',     /* Rich teal-dark card background */
+              accent: '#ff6b35',   /* Logo Fire Orange */
+              accentHover: '#e55a24',
+              secondary: '#00b4d8',/* Logo Teal/Cyan */
+              greenLogo: '#10b981',/* Logo Green tone */
+              input: '#1a3048',    /* Input field background */
+              border: '#2b4c6f',   /* Border highlight */
+              text: '#e2e8f0'
             }
           },
           fontFamily: {
@@ -38,8 +40,8 @@
 
   <style>
     body {
-      background-color: #0d1b2a;
-      color: #e0e1dd;
+      background-color: #09131a;
+      color: #e2e8f0;
       font-family: 'Hind Siliguri', sans-serif;
     }
 
@@ -59,8 +61,8 @@
 
     input[type="radio"]:checked + label,
     input[type="checkbox"]:checked + label {
-      border-color: #ff7f50;
-      background-color: rgba(255, 127, 80, 0.15);
+      border-color: #ff6b35;
+      background-color: rgba(255, 107, 53, 0.15);
       color: #ffffff;
     }
 
@@ -68,28 +70,29 @@
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #0d1b2a;
+      background: #09131a;
     }
     ::-webkit-scrollbar-thumb {
-      background: #415a77;
+      background: #2b4c6f;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #ff7f50;
+      background: #ff6b35;
     }
   </style>
 </head>
 <body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
 
-  <div class="w-full max-w-3xl bg-brand-card rounded-2xl shadow-2xl border border-brand-border/50 overflow-hidden my-auto">
+  <div class="w-full max-w-3xl bg-brand-card rounded-2xl shadow-2xl border border-brand-border/60 overflow-hidden my-auto">
     
-    <!-- Header Banner -->
-    <div class="relative bg-gradient-to-r from-[#002147] via-[#0d1b2a] to-[#ff7f50] p-8 sm:p-10 text-center border-b-4 border-brand-accent overflow-hidden">
-      <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-accent/20 rounded-full blur-2xl pointer-events-none"></div>
-      <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+    <!-- Header Banner: Styled with Logo's Fire Orange, Teal & Green Gradient -->
+    <div class="relative bg-gradient-to-r from-[#0077b6] via-[#112233] to-[#ff6b35] p-8 sm:p-10 text-center border-b-4 border-brand-accent overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-44 h-44 bg-brand-accent/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-44 h-44 bg-brand-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-dark/80 border-2 border-brand-accent text-brand-accent shadow-lg mb-4 text-2xl font-bold">
-        <i class="fa-solid fa-fire"></i>
+      <!-- Logo Icon Badge -->
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-dark/90 border-2 border-brand-accent text-brand-accent shadow-xl mb-4 text-2xl font-bold">
+        <i class="fa-solid fa-fire text-brand-accent"></i>
       </div>
 
       <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-wide mb-2 drop-shadow-md">
@@ -104,7 +107,7 @@
     <form id="registrationForm" class="p-6 sm:p-10 space-y-8" action="https://formspree.io/f/xvkzyowj" method="POST">
       
       <!-- Instructions Note -->
-      <div class="bg-brand-dark/60 border-l-4 border-brand-accent p-4 rounded-r-lg text-sm text-gray-300 flex items-start space-x-3">
+      <div class="bg-brand-dark/80 border-l-4 border-brand-accent p-4 rounded-r-lg text-sm text-gray-300 flex items-start space-x-3 shadow-inner">
         <i class="fa-solid fa-circle-info text-brand-accent text-lg mt-0.5"></i>
         <span>অনুগ্রহ করে সকল সঠিক তথ্য প্রদান করে ফর্মটি পূরণ করুন। লাল স্টার (<span class="text-brand-accent font-bold">*</span>) চিহ্নিত ফিল্ডগুলো পূরণ করা বাধ্যতামূলক।</span>
       </div>
@@ -167,7 +170,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="relative">
             <input type="radio" id="roleTeam" name="role" value="Core Team Member" class="peer hidden" onchange="handleRoleChange('team')" required>
-            <label for="roleTeam" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-accent/50 transition">
+            <label for="roleTeam" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-accent/60 transition shadow-md">
               <i class="fa-solid fa-users-gear text-3xl mb-2 text-brand-accent"></i>
               <span class="font-bold text-lg text-white">কোর টিম মেম্বার</span>
               <span class="text-xs text-gray-300 text-center mt-1">সংগঠনের পরিচালন ও নেতৃত্বে ভূমিকা রাখতে চাইলে</span>
@@ -176,8 +179,8 @@
 
           <div class="relative">
             <input type="radio" id="roleVolunteer" name="role" value="General Volunteer" class="peer hidden" onchange="handleRoleChange('volunteer')">
-            <label for="roleVolunteer" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-accent/50 transition">
-              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-brand-accent"></i>
+            <label for="roleVolunteer" class="flex flex-col items-center justify-center p-5 bg-brand-input border-2 border-brand-border rounded-xl cursor-pointer hover:border-brand-greenLogo/60 transition shadow-md">
+              <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 text-brand-greenLogo"></i>
               <span class="font-bold text-lg text-white">সাধারণ ভলান্টিয়ার</span>
               <span class="text-xs text-gray-300 text-center mt-1">বিভিন্ন ফিল্ডওয়ার্ক ও সোশ্যাল ড্রাইভে যুক্ত হতে চাইলে</span>
             </label>
@@ -186,7 +189,7 @@
       </div>
 
       <!-- SECTION 3A: Core Team Details -->
-      <div id="teamSection" class="expandable-section space-y-5 bg-brand-dark/40 p-6 rounded-xl border-l-4 border-brand-accent">
+      <div id="teamSection" class="expandable-section space-y-5 bg-brand-dark/50 p-6 rounded-xl border-l-4 border-brand-accent shadow-inner">
         <h3 class="text-lg font-bold text-brand-accent flex items-center gap-2">
           <i class="fa-solid fa-sitemap"></i> কোর টিম তথ্য (Core Team Section)
         </h3>
@@ -205,7 +208,7 @@
         </div>
 
         <div>
-          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-gray-200">সপ্তাহে কত ঘণ্টা সময় দিতে পারবেন?</label>
+          <label for="weeklyHours" class="block text-sm font-semibold mb-1 text-gray-200">সفته কত ঘণ্টা সময় দিতে পারবেন?</label>
           <select id="weeklyHours" name="weeklyHours" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
             <option value="">-- সময়কাল নির্বাচন করুন --</option>
             <option value="3-5 Hours">৩ - ৫ ঘণ্টা</option>
@@ -228,8 +231,8 @@
       </div>
 
       <!-- SECTION 3B: Volunteer Details -->
-      <div id="volunteerSection" class="expandable-section space-y-5 bg-brand-dark/40 p-6 rounded-xl border-l-4 border-brand-accent">
-        <h3 class="text-lg font-bold text-brand-accent flex items-center gap-2">
+      <div id="volunteerSection" class="expandable-section space-y-5 bg-brand-dark/50 p-6 rounded-xl border-l-4 border-brand-greenLogo shadow-inner">
+        <h3 class="text-lg font-bold text-brand-greenLogo flex items-center gap-2">
           <i class="fa-solid fa-hands-holding-child"></i> ভলান্টিয়ার তথ্য (Volunteer Section)
         </h3>
 
@@ -238,26 +241,26 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div class="relative">
               <input type="checkbox" id="int1" name="interest" value="Food Drive & Relief Work" class="peer hidden">
-              <label for="int1" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
-                <i class="fa-solid fa-box-tissue text-brand-accent"></i> ত্রাণ ও খাদ্য বিতরণ
+              <label for="int1" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
+                <i class="fa-solid fa-box-tissue text-brand-greenLogo"></i> ত্রাণ ও খাদ্য বিতরণ
               </label>
             </div>
             <div class="relative">
               <input type="checkbox" id="int2" name="interest" value="Event Management" class="peer hidden">
-              <label for="int2" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
-                <i class="fa-solid fa-calendar-check text-brand-accent"></i> ইভেন্ট ম্যানেজমেন্ট
+              <label for="int2" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
+                <i class="fa-solid fa-calendar-check text-brand-greenLogo"></i> ইভেন্ট ম্যানেজমেন্ট
               </label>
             </div>
             <div class="relative">
               <input type="checkbox" id="int3" name="interest" value="Photography & Media" class="peer hidden">
-              <label for="int3" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
-                <i class="fa-solid fa-camera text-brand-accent"></i> ফটোগ্রাফি ও মিডিয়া
+              <label for="int3" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
+                <i class="fa-solid fa-camera text-brand-greenLogo"></i> ফটোগ্রাফি ও মিডিয়া
               </label>
             </div>
             <div class="relative">
               <input type="checkbox" id="int4" name="interest" value="Social Media Campaign" class="peer hidden">
-              <label for="int4" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-accent/50 transition">
-                <i class="fa-solid fa-share-nodes text-brand-accent"></i> প্রচার ও অনলাইন ক্যাম্পেইন
+              <label for="int4" class="flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-lg cursor-pointer text-sm hover:border-brand-greenLogo/60 transition">
+                <i class="fa-solid fa-share-nodes text-brand-greenLogo"></i> প্রচার ও অনলাইন ক্যাম্পেইন
               </label>
             </div>
           </div>
@@ -265,7 +268,7 @@
 
         <div>
           <label for="onFieldAvailability" class="block text-sm font-semibold mb-1 text-gray-200">ফিল্ডওয়ার্কে সরাসরি অংশগ্রহণের সম্মতি</label>
-          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-greenLogo">
             <option value="">-- পছন্দ নির্বাচন করুন --</option>
             <option value="Yes, available anytime">হ্যাঁ, যেকোনো সময় উপস্থিত হতে পারবো</option>
             <option value="Chittagong area only">শুধুমাত্র চট্টগ্রাম শহরের ভেতরে হলে পারবো</option>
@@ -275,7 +278,7 @@
 
         <div>
           <label for="contactPref" class="block text-sm font-semibold mb-1 text-gray-200">জরুরি প্রয়োজনে যোগাযোগের মাধ্যম</label>
-          <select id="contactPref" name="contactPref" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+          <select id="contactPref" name="contactPref" class="w-full px-4 py-3 bg-brand-input border border-brand-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-greenLogo">
             <option value="WhatsApp">WhatsApp Message</option>
             <option value="Phone Call">Direct Phone Call</option>
             <option value="Email">Email</option>
@@ -286,7 +289,7 @@
       <!-- Submit Button -->
       <div class="pt-4">
         <button type="submit"
-          class="w-full py-4 px-8 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-lg rounded-xl shadow-lg transform active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+          class="w-full py-4 px-8 bg-gradient-to-r from-brand-accent to-orange-600 hover:from-brand-accentHover hover:to-orange-700 text-white font-bold text-lg rounded-xl shadow-xl transform active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
           <i class="fa-solid fa-paper-plane"></i> তথ্য জমা দিন (Submit Application)
         </button>
       </div>

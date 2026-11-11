@@ -1,416 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KindleSociety - Team & Volunteer Registration Form</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Hind Siliguri -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              dark: '#070f14',
-              card: '#0d1b2a',
-              green: '#46B261',
-              greenHover: '#399450',
-              input: '#12263f',
-              border: '#1e3a5f',
-              text: '#FFFFFF'
-            }
-          },
-          fontFamily: {
-            sans: ['Hind Siliguri', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#062f25">
+<title>Join us | KindleSociety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@600;700&family=Noto+Sans+Bengali:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#062f25;--forest:#0a5c45;--mint:#4caf5f;--mist:#eaf4ec;--ink:#0b2a22;--soft:#3f5a50;--ember:#f26a1b;--serif:"Noto Serif","Noto Sans Bengali",Georgia,serif;--sans:Inter,"Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--pad:clamp(18px,4vw,44px)}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{font-family:var(--sans);color:var(--ink);background:var(--mist);line-height:1.6;font-size:16px;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-  <style>
-    body {
-      background: radial-gradient(circle at center, #0f2236 0%, #070f14 100%);
-      color: #FFFFFF;
-      font-family: 'Hind Siliguri', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+.hero{position:relative;overflow:hidden;color:#fff;padding:22px var(--pad) 96px;background:radial-gradient(ellipse at 75% 0,#0c6b52 0,var(--forest) 30%,var(--deep) 90%)}
+.arc{position:absolute;border:1.5px solid rgba(76,175,95,.22);border-radius:50%;pointer-events:none}
+.wrap{position:relative;max-width:820px;margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:44px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-weight:700;letter-spacing:.26em;font-size:.95rem}
+.brand img{width:48px;height:48px;border-radius:50%}.brand em{font-style:normal;color:var(--mint)}
+.back{font-size:.85rem;font-weight:600;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 16px;border-radius:999px}
+.back:hover{background:rgba(255,255,255,.12)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.3rem,6vw,3.8rem);line-height:1.08;margin-bottom:14px}
+.hero h1 span{color:var(--mint)}
+.lead{color:#cfe5d6;max-width:48ch;font-size:1.05rem}
+.flame{position:absolute;right:0;bottom:-6px;width:clamp(70px,14vw,120px);opacity:.95}
 
-    /* Highly Visible & Smooth Animated Gradient Title Effect */
-    @keyframes superGlow {
-      0% {
-        background-position: 0% 50%;
-        text-shadow: 0 0 10px rgba(70, 178, 97, 0.4);
-      }
-      50% {
-        background-position: 100% 50%;
-        text-shadow: 0 0 30px rgba(70, 178, 97, 0.9), 0 0 10px rgba(255, 255, 255, 0.6);
-      }
-      100% {
-        background-position: 0% 50%;
-        text-shadow: 0 0 10px rgba(70, 178, 97, 0.4);
-      }
-    }
+main{position:relative;max-width:820px;margin:-56px auto 0;padding:0 var(--pad) 40px}
+.card{background:#fff;border:1px solid #dbe7de;border-radius:20px;padding:26px 28px;margin-bottom:18px;box-shadow:0 10px 30px rgba(6,47,37,.05)}
+.card h2{font-family:var(--serif);font-size:1.3rem;line-height:1.3;margin-bottom:2px}
+.sub{color:var(--soft);font-size:.9rem;margin-bottom:6px}
+.req{color:var(--ember)}
+label.l{display:block;font-weight:600;font-size:.86rem;margin:16px 0 6px}
+input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid #cfdcd3;border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{border-color:var(--mint);outline:3px solid rgba(76,175,95,.25)}
+textarea{resize:vertical}
+.hint{font-size:.8rem;color:var(--soft);margin-top:5px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
 
-    .animated-title {
-      background: linear-gradient(270deg, #FFFFFF, #46B261, #a7f3d0, #FFFFFF);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: superGlow 4s ease infinite;
-    }
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.role{position:relative}
+.role input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;z-index:1}
+.role .box{display:flex;flex-direction:column;gap:8px;height:100%;padding:18px;border:2px solid #cfdcd3;border-radius:16px;background:#fff;transition:border-color .2s,background .2s}
+.role .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--mist);color:var(--forest)}
+.role b{font-family:var(--serif);font-size:1.05rem}
+.role small{color:var(--soft);font-size:.86rem;line-height:1.5}
+.role input:hover+.box{border-color:var(--mint)}
+.role input:checked+.box{border-color:var(--mint);background:#f3faf4;box-shadow:0 0 0 4px rgba(76,175,95,.18)}
+.role input:checked+.box .ic{background:var(--mint);color:var(--deep)}
+.role input:focus-visible+.box{outline:3px solid var(--mint);outline-offset:2px}
 
-    /* Smooth Expandable Sections with Arrow Animation */
-    .expandable-section {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transform: translateY(-15px);
-    }
+.panel{border-left:4px solid var(--mint)}
+.panel.show{animation:open .35s ease}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.chip{position:relative;display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid #cfdcd3;border-radius:12px;font-size:.92rem;font-weight:500;cursor:pointer;background:#fff}
+.chip input{width:18px;height:18px;accent-color:var(--forest);flex:none}
+.chip:has(input:checked){border-color:var(--mint);background:#f3faf4}
+.chip:has(input:focus-visible){outline:3px solid var(--mint);outline-offset:2px}
 
-    .expandable-section.active {
-      max-height: 1500px;
-      opacity: 1;
-      transform: translateY(0);
-      margin-top: 20px;
-    }
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font:700 1.05rem var(--sans);padding:15px 26px;border-radius:999px;border:2px solid var(--mint);background:var(--mint);color:var(--deep);cursor:pointer;margin-top:6px}
+.btn:hover{background:#5cc06e}
+.btn:disabled{opacity:.6;cursor:wait}
+.note{text-align:center;color:var(--soft);font-size:.82rem;margin-top:12px}
+.msg{border-radius:12px;padding:12px 16px;margin-top:14px;font-size:.92rem}
+.msg.ok{background:#d6f0dc;color:#0a5c45}.msg.err{background:#fde8e6;color:#9c2b26}
+.done{text-align:center;padding:44px 28px}
+.done .ck{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:var(--mint);color:var(--deep)}
+.done .ck svg{width:32px;height:32px}
+.done p{color:var(--soft);max-width:42ch;margin:8px auto 0}
+.done .back{display:inline-block;margin-top:22px;color:var(--deep);border-color:var(--deep)}
+footer{text-align:center;color:var(--soft);font-size:.8rem;padding:6px 20px calc(30px + env(safe-area-inset-bottom,0px))}
+footer b{color:var(--forest)}
 
-    /* Hover/Touch Description Effect for Role Cards */
-    .role-desc {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all 0.4s ease-in-out;
-    }
-    
-    .role-card:hover .role-desc,
-    input[type="radio"]:checked ~ .role-desc {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 6px;
-    }
-
-    /* Interactive Hover Effects */
-    .interactive-card {
-      transition: all 0.3s ease;
-    }
-    .interactive-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px -5px rgba(70, 178, 97, 0.3);
-      border-color: #46B261;
-    }
-
-    /* Custom White Branding Badge Glow Effect */
-    .branding-badge {
-      background-color: #FFFFFF;
-      border: 2px solid #46B261;
-      transition: all 0.4s ease;
-    }
-    .branding-badge:hover {
-      box-shadow: 0 0 20px rgba(70, 178, 97, 0.6);
-      transform: translateY(-3px);
-    }
-
-    input[type="radio"]:checked + .role-card {
-      border-color: #46B261;
-      background-color: rgba(70, 178, 97, 0.2);
-      box-shadow: 0 0 15px rgba(70, 178, 97, 0.4);
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #070f14;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e3a5f;
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #46B261;
-    }
-  </style>
+@media(max-width:640px){
+.row,.roles,.chips{grid-template-columns:1fr}
+.card{padding:22px 18px}
+.flame{display:none}
+.hero{padding-bottom:84px}
+.brand{font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){.panel.show{animation:none}}
+</style>
 </head>
-<body class="py-6 px-3 sm:py-10 sm:px-6 lg:px-8 flex flex-col items-center justify-center relative min-h-screen">
+<body>
 
-  <div class="w-full max-w-3xl bg-brand-card rounded-2xl sm:rounded-3xl shadow-2xl border border-brand-border/80 overflow-hidden backdrop-blur-md relative mb-20">
-    
-    <!-- 1. Header Banner with Animated Title -->
-    <div class="relative p-6 sm:p-10 text-center overflow-hidden border-b-4 border-[#46B261]" style="background: linear-gradient(135deg, #070f14 0%, #0d1b2a 50%, #163824 100%);">
-      <div class="absolute -top-16 -right-16 w-32 sm:w-48 h-32 sm:h-48 bg-[#46B261]/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-16 -left-16 w-32 sm:w-48 h-32 sm:h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+<header class="hero">
+  <div class="arc" style="width:520px;height:520px;right:-160px;top:-260px"></div>
+  <div class="arc" style="width:340px;height:340px;right:60px;top:-170px"></div>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="index.html"><img src="logo.png" alt="KindleSociety logo"><span>KINDLE<em>SOCIETY</em></span></a>
+      <a class="back" href="index.html">&larr; Back to website</a>
+    </div>
+    <h1>Join the team that <span>lights the way</span></h1>
+    <p class="lead">Lead from the inside as a core team member, or show up in the field as a volunteer. Tell us who you are and we will get back to you.</p>
+    <svg class="flame" viewBox="0 0 120 150" aria-hidden="true"><path d="M60 8c18 34 52 56 52 100a52 52 0 0 1-104 0c0-24 10-40 22-52 2 16 12 25 20 29-6-30 0-54 10-77z" fill="#f26a1b"/><path d="M60 70c9 16 26 24 26 44a26 26 0 0 1-52 0c0-12 6-19 12-25 2 6 6 10 11 12-2-12 0-22 3-31z" fill="#ffe3a8"/></svg>
+  </div>
+</header>
 
-      <h1 class="text-2xl sm:text-5xl font-extrabold tracking-wide mb-2 animated-title">
-        KindleSociety
-      </h1>
-      <p class="text-xs sm:text-base font-medium tracking-wide max-w-xl mx-auto text-[#46B261]">
-        Empowering Youth, Building Community
-      </p>
-      <div class="mt-3 inline-block px-3.5 py-1 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-[#FFFFFF] bg-[#070f14]/90 border border-[#46B261]/50 shadow-inner">
-        Team & Volunteer Registration Form
-      </div>
+<main>
+<form id="regForm" action="https://formspree.io/f/xvkzyowj" method="POST">
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+  <section class="card">
+    <h2>About you</h2>
+    <p class="sub">Fields marked <span class="req">*</span> are required.</p>
+
+    <label class="l" for="fullName">Full name <span class="req">*</span></label>
+    <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="Your full name">
+
+    <div class="row">
+      <div><label class="l" for="email">Email <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
+      <div><label class="l" for="phone">Phone / WhatsApp <span class="req">*</span></label>
+      <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="01XXXXXXXXX"></div>
     </div>
 
-    <!-- Form Container (Formspree Integrated) -->
-    <form id="registrationForm" class="p-4 sm:p-10 space-y-6 sm:space-y-8" action="https://formspree.io/f/xvkzyowj" method="POST">
-      
-      <!-- Notice 1 -->
-      <div class="bg-[#070f14]/80 border-l-4 border-[#46B261] p-3.5 sm:p-4 rounded-r-xl text-xs sm:text-sm text-gray-300 flex items-start space-x-3 shadow-md">
-        <div class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#46B261]">
-          <i class="fa-solid fa-info text-[10px] sm:text-xs"></i>
-        </div>
-        <span>Please fill out the form with correct information. Fields marked with green star (<span class="text-[#46B261] font-bold">*</span>) are mandatory.</span>
-      </div>
+    <label class="l" for="socialLink">Facebook or LinkedIn profile <span class="req">*</span></label>
+    <input type="url" id="socialLink" name="socialLink" required placeholder="https://facebook.com/yourprofile">
 
-      <!-- Notice 2 -->
-      <div class="bg-[#070f14]/80 border-l-4 border-[#46B261] p-3.5 sm:p-4 rounded-r-xl text-xs sm:text-sm text-gray-300 flex items-start space-x-3 shadow-md">
-        <div class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-white font-bold text-xs mt-0.5 bg-[#46B261]">
-          <i class="fa-solid fa-hand-pointer text-[10px] sm:text-xs"></i>
-        </div>
-        <span>Instruction: Select your preferred role below to open the corresponding section. Hover or tap cards to see details.</span>
-      </div>
+    <label class="l" for="address">Current address <span class="req">*</span></label>
+    <textarea id="address" name="address" rows="2" required placeholder="Area or full address"></textarea>
 
-      <!-- 2. Basic Information Section -->
-      <div class="space-y-4 sm:space-y-5">
-        <h2 class="text-lg sm:text-xl font-bold border-b border-brand-border pb-2 flex items-center gap-2 text-[#FFFFFF]">
-          <i class="fa-solid fa-user-gear text-[#46B261]"></i> Basic Information
-        </h2>
+    <label class="l" for="photoDriveLink">Passport-size photo (Google Drive link) <span class="req">*</span></label>
+    <input type="url" id="photoDriveLink" name="photoDriveLink" required placeholder="https://drive.google.com/file/d/...">
+    <p class="hint">Set the link to "Anyone with the link can view" so we can open it.</p>
+  </section>
 
-        <!-- Full Name -->
-        <div>
-          <label for="fullName" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Full Name <span class="text-[#46B261]">*</span>
-          </label>
-          <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name"
-            class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
-        </div>
-
-        <!-- Email & Phone Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-          <div>
-            <label for="email" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">
-              Email Address <span class="text-[#46B261]">*</span>
-            </label>
-            <input type="email" id="email" name="email" required placeholder="example@gmail.com"
-              class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
-          </div>
-
-          <div>
-            <label for="phone" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">
-              Phone / WhatsApp Number <span class="text-[#46B261]">*</span>
-            </label>
-            <input type="tel" id="phone" name="phone" required placeholder="01XXXXXXXXX"
-              class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
-          </div>
-        </div>
-
-        <!-- Social Media Profile -->
-        <div>
-          <label for="socialLink" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Social Media Profile Link (Facebook / LinkedIn) <span class="text-[#46B261]">*</span>
-          </label>
-          <input type="url" id="socialLink" name="socialLink" required placeholder="https://facebook.com/yourprofile"
-            class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
-        </div>
-
-        <!-- Current Address -->
-        <div>
-          <label for="address" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Current Address <span class="text-[#46B261]">*</span>
-          </label>
-          <textarea id="address" name="address" rows="2" required placeholder="Enter your current address or area name"
-            class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner"></textarea>
-        </div>
-
-        <!-- Google Drive Link for Photo Upload -->
-        <div>
-          <label for="photoDriveLink" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">
-            Google Drive Link of Your Photo (Passport Size) <span class="text-[#46B261]">*</span>
-          </label>
-          <input type="url" id="photoDriveLink" name="photoDriveLink" required placeholder="https://drive.google.com/file/d/..."
-            class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261] transition shadow-inner">
-          <p class="text-[11px] sm:text-xs text-gray-400 mt-1">Make sure the Google Drive link permission is set to "Anyone with the link can view".</p>
-        </div>
-      </div>
-
-      <!-- 3. Dynamic Role Selection (Core Team vs Volunteer) -->
-      <div class="space-y-4">
-        <h2 class="text-lg sm:text-xl font-bold border-b border-brand-border pb-2 flex items-center gap-2 text-[#FFFFFF]">
-          <i class="fa-solid fa-user-plus text-[#46B261]"></i> Role Selection <span class="text-[#46B261]">*</span>
-        </h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Core Team Option -->
-          <div class="relative">
-            <input type="radio" id="roleTeam" name="role" value="Core Team Member" class="peer hidden" onchange="handleRoleChange('team')" required>
-            <label for="roleTeam" class="role-card interactive-card flex flex-col items-center justify-center p-5 sm:p-6 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg text-center h-full block">
-              <i class="fa-solid fa-users-gear text-2xl sm:text-3xl mb-2 sm:mb-3 text-[#46B261]"></i>
-              <span class="font-bold text-base sm:text-lg text-white block">Core Team Member</span>
-              <span class="role-desc text-[11px] sm:text-xs text-gray-300 block">Want to play a role in organization management & leadership</span>
-            </label>
-          </div>
-
-          <!-- General Volunteer Option -->
-          <div class="relative">
-            <input type="radio" id="roleVolunteer" name="role" value="General Volunteer" class="peer hidden" onchange="handleRoleChange('volunteer')">
-            <label for="roleVolunteer" class="role-card interactive-card flex flex-col items-center justify-center p-5 sm:p-6 bg-brand-input border-2 border-brand-border rounded-2xl cursor-pointer shadow-lg text-center h-full block">
-              <i class="fa-solid fa-hand-holding-heart text-2xl sm:text-3xl mb-2 sm:mb-3 text-[#46B261]"></i>
-              <span class="font-bold text-base sm:text-lg text-white block">General Volunteer</span>
-              <span class="role-desc text-[11px] sm:text-xs text-gray-300 block">Want to join various fieldwork & social drives</span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Animated Arrow Indicator -->
-      <div id="selectionArrow" class="text-center hidden transition-all duration-300 my-3">
-        <i class="fa-solid fa-arrow-down-long text-2xl sm:text-3xl text-[#46B261] animate-bounce"></i>
-      </div>
-
-      <!-- SECTION 3A: Core Team Details (Expandable) -->
-      <div id="teamSection" class="expandable-section space-y-4 sm:space-y-5 bg-[#070f14]/70 p-4 sm:p-6 rounded-2xl border-l-4 border-[#46B261] shadow-xl">
-        <h3 class="text-base sm:text-lg font-bold text-[#46B261] flex items-center gap-2">
-          <i class="fa-solid fa-sitemap"></i> Core Team Information
-        </h3>
-
-        <div>
-          <label for="department" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">Preferred Department</label>
-          <select id="department" name="department" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
-            <option value="">-- Select Department --</option>
-            <option value="HR & Admin">HR & Administration</option>
-            <option value="Finance">Finance & Accounts</option>
-            <option value="Operations">Operations & Field Work</option>
-            <option value="Media & PR">Media & PR</option>
-            <option value="IT & Graphics">IT, Graphics & Content</option>
-            <option value="Outreach">Outreach & Networking</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="weeklyHours" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">How many hours can you give weekly?</label>
-          <select id="weeklyHours" name="weeklyHours" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
-            <option value="">-- Select Time --</option>
-            <option value="3-5 Hours">3 - 5 Hours</option>
-            <option value="5-10 Hours">5 - 10 Hours</option>
-            <option value="10+ Hours">10+ Hours</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="teamExperience" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">Previous Experience & Special Skills</label>
-          <textarea id="teamExperience" name="teamExperience" rows="3" placeholder="Write about your experience or skills..."
-            class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261]"></textarea>
-        </div>
-
-        <div>
-          <label for="teamStatement" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">Why do you want to join the KindleSociety Leadership Team?</label>
-          <textarea id="teamStatement" name="teamStatement" rows="3" placeholder="Write your purpose and vision briefly..."
-            class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#46B261]"></textarea>
-        </div>
-      </div>
-
-      <!-- SECTION 3B: Volunteer Details (Expandable) -->
-      <div id="volunteerSection" class="expandable-section space-y-4 sm:space-y-5 bg-[#070f14]/70 p-4 sm:p-6 rounded-2xl border-l-4 border-[#46B261] shadow-xl">
-        <h3 class="text-base sm:text-lg font-bold text-[#46B261] flex items-center gap-2">
-          <i class="fa-solid fa-hands-holding-child"></i> Volunteer Information
-        </h3>
-
-        <div>
-          <label class="block text-xs sm:text-sm font-semibold mb-2 text-[#FFFFFF]">Preferred Areas of Work</label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="relative">
-              <input type="checkbox" id="int1" name="interest" value="Food Drive & Relief Work" class="peer hidden">
-              <label for="int1" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-xs sm:text-sm">
-                <i class="fa-solid fa-box-tissue text-[#46B261]"></i> Food Drive & Relief Work
-              </label>
-            </div>
-            <div class="relative">
-              <input type="checkbox" id="int2" name="interest" value="Event Management" class="peer hidden">
-              <label for="int2" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-xs sm:text-sm">
-                <i class="fa-solid fa-calendar-check text-[#46B261]"></i> Event Management
-              </label>
-            </div>
-            <div class="relative">
-              <input type="checkbox" id="int3" name="interest" value="Photography & Media" class="peer hidden">
-              <label for="int3" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-xs sm:text-sm">
-                <i class="fa-solid fa-camera text-[#46B261]"></i> Photography & Media
-              </label>
-            </div>
-            <div class="relative">
-              <input type="checkbox" id="int4" name="interest" value="Social Media Campaign" class="peer hidden">
-              <label for="int4" class="interactive-card flex items-center gap-2 p-3 bg-brand-input border border-brand-border rounded-xl cursor-pointer text-xs sm:text-sm">
-                <i class="fa-solid fa-share-nodes text-[#46B261]"></i> Social Media Campaign
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <label for="onFieldAvailability" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">Consent for Direct Participation in Fieldwork</label>
-          <select id="onFieldAvailability" name="onFieldAvailability" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
-            <option value="">-- Select Option --</option>
-            <option value="Yes, available anytime">Yes, available anytime</option>
-            <option value="Chittagong area only">Chittagong city area only</option>
-            <option value="Online / Remote work preferred">Online / Remote work preferred</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="contactPref" class="block text-xs sm:text-sm font-semibold mb-1 text-[#FFFFFF]">Preferred Medium for Urgent Contact</label>
-          <select id="contactPref" name="contactPref" class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-brand-input border border-brand-border rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#46B261]">
-            <option value="WhatsApp">WhatsApp Message</option>
-            <option value="Phone Call">Direct Phone Call</option>
-            <option value="Email">Email</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Submit Button -->
-      <div class="pt-3">
-        <button type="submit"
-          class="interactive-card w-full py-3.5 sm:py-4 px-6 sm:px-8 bg-gradient-to-r from-[#46B261] to-[#399450] hover:from-[#399450] hover:to-[#2e7841] text-white font-bold text-base sm:text-lg rounded-2xl shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
-          <i class="fa-solid fa-paper-plane"></i> Submit Application
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <!-- White Branding Badge at Bottom Right Corner (Mobile Friendly & Fixed Colors) -->
-  <div class="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-50">
-    <div class="branding-badge px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-2xl text-center backdrop-blur-sm">
-      <p class="text-[10px] sm:text-xs font-bold tracking-wide text-[#2E7D32]">Built With Nextore Technologies</p>
-      <p class="text-[9px] sm:text-[11px] font-semibold tracking-wide text-[#2E7D32] mt-0.5">Engineered By Atifur Rahman</p>
+  <section class="card">
+    <h2>How do you want to join? <span class="req">*</span></h2>
+    <p class="sub">Pick one. The matching questions open below.</p>
+    <div class="roles">
+      <label class="role">
+        <input type="radio" name="role" value="Core Team Member" id="roleTeam" required>
+        <span class="box">
+          <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-4 3-6 6.5-6s6 2 6.5 6"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18 14.2c2 .7 3.2 2.6 3.5 5.8"/></svg></span>
+          <b>Core team member</b>
+          <small>Help run the organization and take on leadership.</small>
+        </span>
+      </label>
+      <label class="role">
+        <input type="radio" name="role" value="General Volunteer" id="roleVol">
+        <span class="box">
+          <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span>
+          <b>General volunteer</b>
+          <small>Join fieldwork and social drives when you are free.</small>
+        </span>
+      </label>
     </div>
-  </div>
+  </section>
 
-  <!-- JavaScript Logic for Animated Arrow & Role Toggle -->
-  <script>
-    function handleRoleChange(role) {
-      const teamSec = document.getElementById('teamSection');
-      const volSec = document.getElementById('volunteerSection');
-      const arrow = document.getElementById('selectionArrow');
+  <section class="card panel" id="teamSection" hidden>
+    <h2>Core team questions</h2>
+    <label class="l" for="department">Preferred department</label>
+    <select id="department" name="department">
+      <option value="">Select a department</option>
+      <option value="HR & Admin">HR & Administration</option>
+      <option value="Finance">Finance & Accounts</option>
+      <option value="Operations">Operations & Field Work</option>
+      <option value="Media & PR">Media & PR</option>
+      <option value="IT & Graphics">IT, Graphics & Content</option>
+      <option value="Outreach">Outreach & Networking</option>
+    </select>
 
-      arrow.classList.remove('hidden');
+    <label class="l" for="weeklyHours">Hours you can give each week</label>
+    <select id="weeklyHours" name="weeklyHours">
+      <option value="">Select hours</option>
+      <option value="3-5 Hours">3 to 5 hours</option>
+      <option value="5-10 Hours">5 to 10 hours</option>
+      <option value="10+ Hours">10+ hours</option>
+    </select>
 
-      if (role === 'team') {
-        teamSec.classList.add('active');
-        volSec.classList.remove('active');
-      } else if (role === 'volunteer') {
-        volSec.classList.add('active');
-        teamSec.classList.remove('active');
-      }
-    }
-  </script>
+    <label class="l" for="teamExperience">Experience and skills</label>
+    <textarea id="teamExperience" name="teamExperience" rows="3" placeholder="What have you done before? What are you good at?"></textarea>
+
+    <label class="l" for="teamStatement">Why do you want to join the leadership team?</label>
+    <textarea id="teamStatement" name="teamStatement" rows="3" placeholder="Tell us your purpose and vision in a few lines"></textarea>
+  </section>
+
+  <section class="card panel" id="volSection" hidden>
+    <h2>Volunteer questions</h2>
+    <label class="l" style="margin-bottom:0">Where would you like to help?</label>
+    <div class="chips">
+      <label class="chip"><input type="checkbox" name="interest" value="Food Drive & Relief Work">Food drive and relief work</label>
+      <label class="chip"><input type="checkbox" name="interest" value="Event Management">Event management</label>
+      <label class="chip"><input type="checkbox" name="interest" value="Photography & Media">Photography and media</label>
+      <label class="chip"><input type="checkbox" name="interest" value="Social Media Campaign">Social media campaigns</label>
+    </div>
+
+    <label class="l" for="onFieldAvailability">Can you join us in the field?</label>
+    <select id="onFieldAvailability" name="onFieldAvailability">
+      <option value="">Select an option</option>
+      <option value="Yes, available anytime">Yes, anytime</option>
+      <option value="Chittagong area only">Chittagong city only</option>
+      <option value="Online / Remote work preferred">Online or remote work preferred</option>
+    </select>
+
+    <label class="l" for="contactPref">Best way to reach you urgently</label>
+    <select id="contactPref" name="contactPref">
+      <option value="WhatsApp">WhatsApp message</option>
+      <option value="Phone Call">Phone call</option>
+      <option value="Email">Email</option>
+    </select>
+  </section>
+
+  <button class="btn" type="submit" id="sub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>Send my application</button>
+  <div id="err" class="msg err" hidden></div>
+  <p class="note">We read every application and reply by email or WhatsApp.</p>
+</form>
+
+<section class="card done" id="done" hidden>
+  <div class="ck"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+  <h2>Application received</h2>
+  <p>Thank you for stepping forward. Our team will contact you soon on the email or number you gave us.</p>
+  <a class="back" href="index.html">Back to website</a>
+</section>
+</main>
+
+<footer>Built with <b>Nextore Technologies</b> &middot; Engineered by Atifur Rahman</footer>
+
+<script>
+(function(){
+ var form=document.getElementById('regForm'),team=document.getElementById('teamSection'),vol=document.getElementById('volSection'),err=document.getElementById('err'),sub=document.getElementById('sub');
+ function open(on,off){off.hidden=true;on.hidden=false;on.classList.remove('show');void on.offsetWidth;on.classList.add('show');
+  on.querySelectorAll('input,select,textarea').forEach(function(x){x.disabled=false});off.querySelectorAll('input,select,textarea').forEach(function(x){x.disabled=true})}
+ document.getElementById('roleTeam').addEventListener('change',function(){open(team,vol)});
+ document.getElementById('roleVol').addEventListener('change',function(){open(vol,team)});
+ form.addEventListener('submit',async function(e){
+  e.preventDefault();err.hidden=true;sub.disabled=true;
+  try{
+   var r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+   if(!r.ok)throw 0;
+   form.hidden=true;document.getElementById('done').hidden=false;window.scrollTo({top:0,behavior:'smooth'});
+  }catch(x){err.textContent='Could not send your application. Check your connection and try again.';err.hidden=false;sub.disabled=false}
+ });
+})();
+</script>
 </body>
 </html>
